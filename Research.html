@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Anxiety Spillover Research Portal</title>
+    <style>
+        :root {
+            --ubc-blue: #002145;
+            --ocean-blue: #005A9C;
+            --accent-coral: #E25822;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --bg-canvas: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --border-color: #E2E8F0;
+            --nav-height: 90px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-canvas);
+            line-height: 1.8;
+            padding-top: var(--nav-height);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Fixed Full-Width Top Navigation Header Bar */
+        nav {
+            width: 100%;
+            height: var(--nav-height);
+            background-color: var(--ubc-blue);
+            color: #FFFFFF;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent-coral);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .brand-logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: #93C5FD;
+            text-decoration: none;
+            cursor: pointer;
+            line-height: 1.3;
+            max-width: 320px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 0.35rem;
+            align-items: center;
+        }
+
+        /* Fixed Navigation Router Control Buttons */
+        .nav-btn {
+            background: none;
+            border: none;
+            color: #CBD5E1;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+        }
+
+        .nav-btn.active {
+            background-color: var(--accent-coral);
+            color: #FFFFFF;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Subpage Display Implementations */
+        .subpage {
+            display: none;
+            width: 100%;
+            animation: pageFadeIn 0.35s ease-in-out;
+        }
+
+        .subpage.active-page {
+            display: block;
+        }
+
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Main Workspace Container Layout */
+        main {
+            max-width: 1150px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            flex-grow: 1;
+        }
+
+        header {
+            margin-bottom: 3.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .project-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-coral);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: var(--ubc-blue);
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            line-height: 1.3;
+        }
+
+        .metadata-strip {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            justify-content: center;
+            flex-wrap: wrap;
+            background: var(--bg-white);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-top: 1.5rem;
+        }
+
+        /* Content Presentation Panels */
+        .content-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 4rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.01);
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.85rem;
+            color: var(--ubc-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent-coral);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--ocean-blue);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.65rem;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+
+        li strong {
+            color: var(--ubc-blue);
+        }
+
+        /* Customized SVG Graphics Containers */
+        .vector-illustration-box {
+            width: 100%;
+            background: linear-gradient(135deg, #002145 0%, #005A9C 100%);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .inline-vector-wrapper {
+            margin: 2.5rem 0;
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+        }
+
+        .illustration-caption {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 0.75rem;
+        }
+
+        /* Analytical Flowcharts */
+        .flowchart-diagram {
+            background: #F8FAFC;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .flowchart-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ubc-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .flowchart-nodes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .flowchart-card {
+            background: var(--bg-white);
+            border: 2px solid var(--ubc-blue);
+            color: var(--ubc-blue);
+            padding: 1.25rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .flowchart-card.highlight {
+            border-color: var(--accent-coral);
+            background: #FFF5F2;
+            color: var(--accent-coral);
+        }
+
+        .flowchart-arrow {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .theme-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .theme-block {
+            background: var(--bg-canvas);
+            border-left: 5px solid var(--ocean-blue);
+            padding: 2.5rem;
+            border-radius: 0 8px 8px 0;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .theme-number {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--accent-coral);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .theme-title {
+            font-size: 1.35rem;
+            color: var(--ubc-blue);
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .callout-block {
+            background-color: var(--bg-canvas);
+            border-left: 4px solid var(--accent-coral);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Matrix Data Grids */
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2.5rem 0;
+            font-size: 1rem;
+        }
+
+        .matrix-table th, .matrix-table td {
+            border: 1px solid var(--border-color);
+            padding: 1.15rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .matrix-table th {
+            background-color: var(--ubc-blue);
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.85rem;
+        }
+
+        .matrix-table tr:nth-child(even) {
+            background-color: #F8FAFC;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+
+        .badge.eval {
+            background-color: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .badge.learn {
+            background-color: #DBEAFE;
+            color: #1E40AF;
+        }
+
+        footer {
+            background-color: var(--ubc-blue);
+            color: white;
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: auto;
+            border-top: 4px solid var(--accent-coral);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1150px) {
+            nav { height: auto; padding: 1rem 0; }
+            .nav-container { flex-direction: column; gap: 1rem; padding: 0 1rem; text-align: center; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 0.25rem; }
+            .brand-logo { max-width: 100%; text-align: center; }
+            body { padding-top: 220px; }
+            main { padding: 2rem 1rem; }
+            .content-card { padding: 2rem; }
+            .flowchart-nodes { flex-direction: column; }
+            .flowchart-arrow { transform: rotate(90deg); margin: 0.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a class="brand-logo" onclick="switchSubpage('context')">Math Anxiety Spillover Research</a>
+            <ul class="nav-links">
+                <li><button class="nav-btn active" onclick="switchSubpage('context')">Context</button></li>
+                <li><button class="nav-btn" onclick="switchSubpage('inquiries')">Research Inquiries</button></li>
+                <li><button class="nav-btn" onclick="switchSubpage('matrix')">Literature Matrix</button></li>
+                <li><button class="nav-btn" onclick="switchSubpage('methodology')">Methodology</button></li>
+                <li><button class="nav-btn" onclick="switchSubpage('instruments')">Instruments</button></li>
+                <li><button class="nav-btn" onclick="switchSubpage('ethics')">Ethics & TCPS 2</button></li>
+                <li><button class="nav-btn" onclick="switchSubpage('interventions')">Syllabus Interventions</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+        <div id="page-context" class="subpage active-page">
+            <div class="content-card">
+                <h2>1. Problem Statement & Educational Context</h2>
+                
+                <div class="vector-illustration-box">
+                    <svg viewBox="0 0 800 200" width="100%" height="100%" style="max-height: 140px;">
+                        <line x1="50" y1="150" x2="750" y2="150" stroke="#60A5FA" stroke-width="2" stroke-dasharray="4"/>
+                        <line x1="50" y1="50" x2="750" y2="50" stroke="#60A5FA" stroke-width="1" stroke-dasharray="8"/>
+                        <path d="M 50 130 Q 200 140, 350 110 T 650 40" fill="none" stroke="#E25822" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="650" cy="40" r="6" fill="#E25822"/>
+                        <text x="60" y="40" fill="#93C5FD" font-family="sans-serif" font-size="12" font-weight="bold" letter-spacing="1">AFFECTIVE DOMAIN TRANSFER</text>
+                        <text x="650" y="25" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="bold">Spillover Threshold</text>
+                    </svg>
+                </div>
+
+                <p>Secondary school applied business electives, specifically foundational sequences such as Accounting 11/12, information and communication technology informatics, and AP Economics, occupy an increasingly vulnerable and unexamined structural middle ground within modern public education systems. While these courses rely fundamentally on the ongoing manipulation of data analytics packages, digital bookkeeping cells, mathematical multi-step tracking sheets, and technical graphic layout systems, they remain formally classified under the umbrella of practical arts, vocational competencies, or applied social sciences rather than traditional secondary STEM pathways. Because of this strategic institutional tracking separation, these elective options do not generate a natural enrollment pre-filtering effect that selects for mathematically highly confident student cohorts. Instead, regional secondary classrooms are systematically populated by highly ambitious and professional-oriented student clusters who select into these blocks while carrying varying degrees of unaddressed, historically conditioned mathematical trauma acquired during compulsory secondary school math tracks.</p>
+                <p>To insulate personal feelings of academic capability, secondary students frequently establish a defensive emotional schema before elective instruction initiates, relying heavily on self-protective identity scripts such as asserting that they are purely humanities students or that they do not possess a mathematical brain structure. The moment a business curriculum exposes these students to necessary quantitative requirements, this defensive psychological shield experiences an immediate, unexpected failure. The resulting emotional disruption triggers an unobserved cross-disciplinary spillover effect, flooding the student with task anxiety, driving rapid classroom disengagement, eroding baseline retention metrics, and contributing directly to systemic underperformance. This interactive research portal details the formal structural framework of a mixed-methods empirical investigation designed to track, analyze, and structurally alleviate this hidden bottleneck within regional high school systems, advancing equity for students navigating cross-subject quantitative trauma.</p>
+                <p>In public secondary settings, the pedagogical challenge is further worsened by the isolated structures of secondary departments. Mathematics instructors frequently teach algorithmic concepts without explicit cross-application to commercial tracking networks, while business educators assume basic computation skills are ready to be utilized without accounting for the active affective blockades that lock up student performance. This structural gap leaves the high school student trapped between departments, forced to handle cognitive interference alone. This project systematically examines these dynamics, providing educational managers with scalable, empirical data tracking systems to evaluate the migratory property of math anxiety traits and rebuild secondary interdisciplinary pipelines from an evidence-based foundation.</p>
+            </div>
+        </div>
+
+        <div id="page-inquiries" class="subpage">
+            <div class="content-card">
+                <h2>2. Research Inquiries</h2>
+                
+                <div class="inline-vector-wrapper" style="text-align: center; background: #002145;">
+                    <svg viewBox="0 0 600 150" width="100%" style="max-width: 500px; max-height: 120px;">
+                        <rect x="10" y="35" width="160" height="80" rx="6" fill="#005A9C" stroke="#93C5FD" stroke-width="1"/>
+                        <text x="90" y="73" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Quantitative Model</text>
+                        <text x="90" y="93" fill="#93C5FD" font-family="sans-serif" font-size="11" text-anchor="middle">Anxiety vs. Grades</text>
+                        
+                        <line x1="170" y1="75" x2="430" y2="75" stroke="#E25822" stroke-width="2"/>
+                        <circle cx="300" cy="75" r="16" fill="#E25822"/>
+                        <text x="300" y="79" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">RQ</text>
+                        
+                        <rect x="430" y="35" width="160" height="80" rx="6" fill="#005A9C" stroke="#93C5FD" stroke-width="1"/>
+                        <text x="510" y="73" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Qualitative Focus</text>
+                        <text x="510" y="93" fill="#93C5FD" font-family="sans-serif" font-size="11" text-anchor="middle">Lived Narratives</text>
+                    </svg>
+                    <div class="illustration-caption" style="color:#93C5FD; border-color: rgba(255,255,255,0.1);">Figure 1.1: Dual alignment model mapping tracking methods against proposed inquiry goals.</div>
+                </div>
+
+                <p>The overarching purpose of this mixed-methods empirical investigation is to uncover and document the hidden paths through which localized mathematical distress crosses disciplinary boundaries to compromise achievement within applied elective courses. This study aims to move beyond simple descriptive correlations by constructing an integrated explanatory framework that links objective statistical performance trends with the subjective, lived realities of high school seniors experiencing quantitative learning distress. To fulfill this empirical objective, the research design addresses two targeted research questions:</p>
+                <ul>
+                    <li><strong>Research Question 1 (Quantitative Scope):</strong> To what extent does incoming domain-specific mathematics anxiety (measured psychometrically via distinct evaluation and learning subscales at the start of the academic cycle) predict final, uncurved terminal percentage grades for secondary school students registered across applied business elective blocks, when controlling for student baseline mathematical capability and cumulative academic performance benchmarks?</li>
+                    <li><strong>Research Question 2 (Qualitative Scope):</strong> How do secondary school seniors perceive, navigate, describe, and emotionally internalize unexpected structural "mathiness" (including dense data visualizations, spreadsheet equations, balancing formulas, and numerical ledger cell tracking grids) when completing coursework in non-STEM applied business disciplines?</li>
+                </ul>
+                <p>By connecting these two inquiries, this project addresses a prominent gap in current secondary tracking literature. Current studies often evaluate mathematics anxiety purely within mathematics blocks, leaving its migratory spillover patterns unmeasured. Evaluating these parameters inside applied social science streams provides educational leaders with the precise empirical measurements required to calculate the real-world operational costs of math trauma, determine its impact on cross-subject course retention, and establish structured curricular interventions to secure equitable career pathways for vulnerable adolescent pipelines.</p>
+            </div>
+        </div>
+
+        <div id="page-matrix" class="subpage">
+            <div class="content-card">
+                <h2>3. The 4-Theme Literature Matrix</h2>
+                <p>To establish a rigorous theoretical foundation, existing empirical research is synthesized into four distinct literature themes. Each theme isolates a specific dimension of the spillover phenomenon, carefully separating environmental, cognitive, behavioral, and cross-subject boundary interactions to ensure structural clarity throughout the investigation.</p>
+                
+                <div class="flowchart-diagram">
+                    <div class="flowchart-title">Figure 2.1: Structural Mapping of Cross-Subject Trait-State Migration</div>
+                    <div class="flowchart-nodes">
+                        <div class="flowchart-card">Core Algebra Track Trauma<br><span style="font-size:0.75rem; font-weight:normal; color:var(--text-muted);">Conditioned Trait Baseline</span></div>
+                        <div class="flowchart-arrow">&rarr;</div>
+                        <div class="flowchart-card highlight">Elective "Mathiness" Stimulus<br><span style="font-size:0.75rem; font-weight:normal;">Spreadsheet/Ledger Exposure</span></div>
+                        <div class="flowchart-arrow">&rarr;</div>
+                        <div class="flowchart-card">Working Memory Exhaustion<br><span style="font-size:0.75rem; font-weight:normal; color:var(--text-muted);">Executive Resource Drain</span></div>
+                        <div class="flowchart-arrow">&rarr;</div>
+                        <div class="flowchart-card">Programmatic Avoidance<br><span style="font-size:0.75rem; font-weight:normal; color:var(--text-muted);">Pipeline Tracking Dropout</span></div>
+                    </div>
+                </div>
+
+                <div class="theme-container">
+                    <div class="theme-block">
+                        <div class="theme-number">Theme 1</div>
+                        <div class="theme-title">Evaluative Threat Frameworks & Structural Performance Paralysis</div>
+                        <p>This initial literature theme focuses entirely on the structural parameters of the classroom testing environment, evaluating how rigid high-stakes grading frameworks activate acute state distress. The empirical literature establishes that upcoming exam deadlines, timed pop-quizzes, and heavily-weighted assessment boundaries function as an active environmental threat network within public secondary systems. When these evaluative constraints are active, localized social pressure floods the student's consciousness with performance worries and an intense fear of negative tracking evaluation or peer judgment.</p>
+                        <p>This environmental distraction completely alters a student's cognitive execution strategies. As Beilock and Carr (2005) demonstrated empirically, social-evaluative pressure forces otherwise highly capable minds to completely abandon flexible, creative, and adaptive problem-solving strategies, collapsing instead into slow, error-prone, and rigid algorithmic execution patterns under test parameters. Under high-stakes testing conditions, final academic success is dictated by the constraints of the evaluative environment itself rather than an objective lack of student capability or background preparation. For high school business electives, this implies that traditional, heavily-weighted exam structures can actively trigger a state of performance paralysis, masking a student's actual operational potential. **All cognitive working memory mechanics are explicitly excluded from this environmental theme block to preserve conceptual independence.**</p>
+                    </div>
+
+                    <div class="theme-block">
+                        <div class="theme-number">Theme 2</div>
+                        <div class="theme-title">Cross-Subject Cognitive Interference & Working Memory Resource Exhaustion</div>
+                        <p>The second literature theme addresses the explicit cognitive architecture of processing failure during data-heavy academic tasks. Rather than reflecting an objective deficit in raw intelligence or a lack of preparation, performance degradation under numeric anxiety is a product of immediate resource depletion in the prefrontal cortex. The activation of mathematics anxiety triggers intrusive, worrisome thoughts and negative internal ruminations regarding failure. These distractions run continuously in the background, functioning as an active internal secondary task that directly competes for a student's finite attentional bandwidth.</p>
+                        <p>This emotional load overloads and exhausts the limited processing slots of the central executive within working memory frameworks, leaving insufficient cognitive workspace to update variables, hold data strings, or execute multi-step logic. Importantly, Ashcraft and Kirk (2001) alongside Ramirez, Shaw, and Maloney (2018) provide clear evidence that this working memory exhaustion paradoxically targets the highest-achieving students. Because high-capacity students typically excel by relying on complex, strategy-intensive problem-solving shortcuts, they experience a catastrophic performance collapse when anxiety co-opts those prefrontal slots, dropping their operational efficiency down to the baseline of their lower-capacity peers who rely on simple formulas.</p>
+                    </div>
+
+                    <div class="theme-block">
+                        <div class="theme-number">Theme 3</div>
+                        <div class="theme-title">Programmatic Trait Avoidance & Vocational Pipeline Distortion</div>
+                        <p>The third theme evaluates the behavioral and vocational consequences of unaddressed evaluative threat, detailing how high school students adapt their graduation tracks to escape emotional discomfort. To protect personal identity metrics and maximize feelings of academic safety, secondary students frequently establish long-term defensive boundaries around course selection, routing themselves completely away from traditional math courses. This behavior alters the demographic makeup of vocational tracks, steering capable minds away from fields that incorporate data components.</p>
+                        <p>However, as Luu-Thi et al. (2021) document using large-scale cross-sectional surveys, high school seniors tracking toward highly popular professional streams in Finance, Corporate Marketing, and Economics frequently collide with unexpected, embedded quantitative requirements. This generates a high-achiever strain loop: highly motivated, career-oriented students select into these applied business blocks to achieve professional mobility, but carry hidden, unaddressed mathematical trauma. When confronted with quantitative syllabus demands, they experience elevated baseline anxiety profiles, driving rapid academic burnout or forced programmatic tracking dropouts.</p>
+                    </div>
+
+                    <div class="theme-block">
+                        <div class="theme-number">Theme 4</div>
+                        <div class="theme-title">Contextual Affective Slippage & The "Mathiness" Spillover Effect</div>
+                        <p>The final literature theme details the migratory properties of numeric distress across traditional subject boundaries. The empirical literature confirms that affective math trauma is not a isolated phenomenon confined to specific algebra classrooms; rather, it functions as a highly movable psychological pollutant that travels across subject lines within a student's daily schedule. When secondary students move across classrooms, their underlying conditioned emotional response patterns travel with them into alternative elective spaces.</p>
+                        <p>The moment an applied elective presents a visual task format that mirrors traditional mathematics blocks (such as spreadsheet data grids, formula cells, corporate ledger lines, or economic function curves), the brain generalizes the stimulus and activates its negative threat centers. Al-Bahrani et al. (2017) define this intersection as the impact of "Mathiness" (a unique pedagogical middle ground where unexpected quantitative layouts outside of math tracks trigger immediate student resistance, lower confidence metrics, and accelerate widespread mental disengagement from non-STEM courses). Consequently, the unexpected presence of data tools turns a business elective into a psychological threat zone for an anxious student.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-methodology" class="subpage">
+            <div class="content-card">
+                <h2>4. Methodology: Explanatory Sequential Mixed-Methods Design</h2>
+                
+                <div class="inline-vector-wrapper" style="background: #F1F5F9; padding: 2.5rem 1.5rem;">
+                    <svg viewBox="0 0 700 120" width="100%" style="max-height: 90px;">
+                        <circle cx="80" cy="50" r="30" fill="#002145"/>
+                        <text x="80" y="55" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">PHASE 1</text>
+                        <text x="80" y="105" fill="#002145" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Quant Survey Screening</text>
+                        
+                        <line x1="120" y1="50" x2="300" y2="50" stroke="#E25822" stroke-width="2" stroke-dasharray="4"/>
+                        
+                        <circle cx="350" cy="50" r="30" fill="#005A9C"/>
+                        <text x="350" y="55" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">PHASE 2</text>
+                        <text x="350" y="105" fill="#005A9C" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Qual Interviews</text>
+                        
+                        <line x1="390" y1="50" x2="570" y2="50" stroke="#E25822" stroke-width="2" stroke-dasharray="4"/>
+                        
+                        <circle cx="610" cy="50" r="30" fill="#E25822"/>
+                        <text x="610" y="55" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">INTEGRATION</text>
+                        <text x="610" y="105" fill="#E25822" font-family="sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Syllabus Interventions</text>
+                    </svg>
+                </div>
+
+                <p>To analyze the cross-subject migration of mathematical distress with empirical rigor, this project utilizes an Explanatory Sequential Mixed-Methods Design. This research architecture unfolds in two distinct, connected phases, combining large-scale statistical modeling with phenomenological narrative data. This dual-phase approach ensures that the statistical trends identified in the initial phase are deeply contextualized by the subjective experiences captured in the subsequent stage, aligning with rigorous social science research traditions.</p>
+                
+                <h3>Phase 1: Quantitative Predictive Modeling</h3>
+                <p>The initial phase maps broad trends using a cross-sectional predictive design. Distributed during the opening two weeks of the academic year, digital diagnostic screening packages are deployed to measure baseline anxiety traits before major graded tasks occur. This phase calculates whether incoming anxiety scores statistically predict final academic grades across elective blocks, helping isolate the predictive paths of performance degradation. Multiple linear regression modeling is executed within secure R programming environments, adjusting for demographic covariates, prerequisite course marks, and cumulative workloads to isolate the predictive path of cross-subject anxiety spillover.</p>
+                
+                <h3>Phase 2: Qualitative Phenomenological Narrative Capturing</h3>
+                <p>The subsequent phase transitions from numbers to lived experience, collecting descriptive data to interpret the quantitative trends. Conducted during the post-evaluation tracking cycle, semi-structured phenomenological interviews gather individual narrative files from selected student clusters. This block investigates the precise psychological coping styles, defensive schemas, and emotional adaptations deployed by adolescents when encountering multi-step quantitative data requirements outside of their core math tracks. Verbatim transcripts are analyzed using multi-cycle inductive coding workflows to capture the precise mechanisms of task avoidance and cognitive blockades.</p>
+                
+                <h3>Sample Framing & Participant Selection Boundaries</h3>
+                <p>The participant sample is drawn from public secondary schools within regional school districts, targeting high school seniors registered across Grade 11 and Grade 12 applied business blocks. Inclusion criteria restrict enrollment to students registered in heavily quantitative elective tracks, including Accounting 11/12, AP Economics, or applied computer informatics. Courses that are purely descriptive or conceptual are excluded from the sampling pool, ensuring that every participant encounters identical data tracking demands. This structural framing isolates the targeted emotional phenomenon across diverse secondary school settings.</p>
+            </div>
+        </div>
+
+        <div id="page-instruments" class="subpage">
+            <div class="content-card">
+                <h2>5. Research Instrumentation Metrics</h2>
+                <p>To capture both statistical trends and narrative text records with maximum validity, this investigation deploys customized instruments for both empirical phases. These metrics psychometrically separate situational triggers and track explicit adolescent coping behaviors.</p>
+                
+                <h3>Phase 1 Survey Instrument Matrix (Adapted AMAS)</h3>
+                <p>To evaluate student anxiety thresholds without provoking test panic, Phase 1 adapts the 9-item Abbreviated Math Anxiety Scale (AMAS). This instrument splits math anxiety into a bifactor structure: Evaluation Anxiety (MEA), prompted by formal grading, and Learning Anxiety (LMA), prompted by daily instructional explanations. This scale was validated by Rocha and Alves (2025) to account for 52.47% of total variance with high consistency values (Cronbach's alpha coefficients greater than or equal to 0.70) within business streams.</p>
+                
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;">Item ID</th>
+                            <th style="width: 55%;">Survey Stimulus Situation Metric Description</th>
+                            <th style="width: 30%;">Subscale Factor Mapping</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>AMAS-BUS-01</strong></td>
+                            <td>"Opening a spreadsheet software data file and looking at multi-step macro formulas."</td>
+                            <td><span class="badge learn">Learning Anxiety (LMA)</span> (Cite Rocha & Alves, 2025)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AMAS-BUS-02</strong></td>
+                            <td>"Thinking about a major accounting ledger final examination the day before the evaluation."</td>
+                            <td><span class="badge eval">Evaluation Anxiety (MEA)</span> (Cite Rocha & Alves, 2025)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AMAS-BUS-03</strong></td>
+                            <td>"Watching your elective instructor execute an economic market equilibrium equation on the board."</td>
+                            <td><span class="badge learn">Learning Anxiety (LMA)</span> (Cite Rocha & Alves, 2025)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AMAS-BUS-04</strong></td>
+                            <td>"Completing a timed, unexpected quiz regarding corporate data analytics processing rules."</td>
+                            <td><span class="badge eval">Evaluation Anxiety (MEA)</span> (Cite Rocha & Alves, 2025)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Phase 2 Phenomenological Interview Protocol</h3>
+                <p>Qualitative prompts are structured around the Academic Coping Inventory (ACI) framework to evaluate how student coping choices map onto adaptive strategies (Positive Coping) versus self-defeating approaches (Projective Coping, Denial Coping, or Non-Coping). These semi-structured lines of inquiry explore the emotional paths behind cross-disciplinary performance drops:</p>
+                
+                <div class="callout-block">
+                    <h3>Targeted Interview Guide Prompts:</h3>
+                    <ol>
+                        <li><strong>The Domain Exposure Vector:</strong> <em>"Think back to a specific moment this term when you unexpectedly encountered multi-step formulas, algebraic curves, or dense data tables in your business elective course. Walk me through your immediate internal thoughts, feelings, and bodily reactions during that event."</em></li>
+                        <li><strong>The Coping Style Diagnostic:</strong> <em>"When you encounter a calculation error or an unbalanced line item inside a spreadsheet cell, what specific actions do you take next to resolve the issue? How do you choose between asking for help, blaming external grading structures, or ignoring the task entirely?"</em></li>
+                        <li><strong>The Contrast Lens:</strong> <em>"How does your emotional experience processing numbers within this elective environment compare to your experiences inside core secondary mathematics classes? In your view, how do changes in classroom setting or course context alter your personal confidence?"</em></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-ethics" class="subpage">
+            <div class="content-card">
+                <h2>6. Ethical Governance & TCPS 2 Compliance</h2>
+                
+                <div class="inline-vector-wrapper" style="text-align: center; background: #FFFBF0; border-color: #F59E0B; padding: 2rem;">
+                    <svg viewBox="0 0 400 100" width="100%" style="max-width: 320px; max-height: 80px;">
+                        <polygon points="50,15 110,15 130,50 110,85 50,85 30,50" fill="none" stroke="#002145" stroke-width="3"/>
+                        <circle cx="80" cy="50" r="18" fill="#E25822"/>
+                        <text x="160" y="48" fill="#002145" font-family="sans-serif" font-size="14" font-weight="bold">TCPS 2 COMPLIANT</text>
+                        <text x="160" y="68" fill="#64748B" font-family="sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">UBC Governance Guardrails</text>
+                    </svg>
+                </div>
+
+                <p>Because this project collects human data from minor populations within public secondary school environments, the entire empirical workflow is strictly structured to comply with the core mandates of the <strong>Tri-Council Policy Statement: Ethical Conduct for Research Involving Humans (TCPS 2)</strong>. The research design prioritizes three foundational ethical principles: Respect for Persons, Concern for Welfare, and Justice, satisfying all institutional parameters required by the UBC Behavioural Research Ethics Board (BREB).</p>
+                
+                <h3>Minor-Protection Consent Framework</h3>
+                <p>Empirical operations cannot begin within high school sectors until a dual-layer consent process is secured. First, explicit **Parental or Guardian Informed Consent Forms** are formally distributed, collected, and cataloged, detailing all data storage steps, focus parameters, and risks. Second, because adolescents are developing autonomy, participants must sign a voluntary **Adolescent Assent Documentation** sheet written in clear, non-coercive, and age-appropriate language. Students are explicitly informed of their absolute right to withdraw from interviews or digital survey screening at any moment in the school year without academic penalty, grade adjustments, or negative administrator tracking.</p>
+                
+                <h3>Data Privacy, Security, & Minimization Protocols</h3>
+                <p>To safeguard student welfare and prevent school-level labeling, rigorous data security controls are active throughout the research lifecycle. All direct participant identifiers, including student registration numbers, institutional tags, and matching names, are completely stripped from database tracking arrays at collection and replaced with unique research pseudonyms during transcript management. All digital tracking files, audio recording logs, spreadsheet matrices, and Qualtrics records are stored exclusively on password-protected, double-encrypted local drives, fully satisfying institutional data security standards and matching BREB guidelines for educational research.</p>
+            </div>
+        </div>
+
+        <div id="page-interventions" class="subpage">
+            <div class="content-card">
+                <h2>7. Actionable Curricular & Syllabus Redesign Strategies</h2>
+                <p>To mitigate the negative impacts of math anxiety spillover without watering down the academic rigor of secondary business pipelines, this proposal outlines actionable curriculum redesign strategies. These low-lift, high-impact operational adjustments target the exact environmental and learning triggers uncovered across the literature matrix, allowing educators to support student performance equity within standard high school classrooms.</p>
+                
+                <h3>1. Mitigating Evaluation Anxiety via Assessment Restructuring</h3>
+                <p>To address the environmental pressures documented in Theme 1, secondary syllabus configurations must move away from an over-reliance on high-stakes, heavily weighted traditional exams that exhaust a student's working memory slots. Instructors should break major testing weights down into **weekly, low-stakes online tracking quizzes (e.g., 2% each)** deployed on digital learning management systems like Canvas. This structural adjustment provides students with continuous, automated formative feedback loops, reduces the high-stakes panic associated with single exams, and helps clear executive workspace of intrusive performance worries before terminal final tests occur.</p>
+                
+                <h3>2. Mitigating Learning Anxiety via Context-First Sequencing</h3>
+                <p>To insulate students from the automatic threat responses tracked in Theme 4, instructors should adjust the sequence of quantitative delivery. Educators must never initiate a new spreadsheet module, database function, or commercial formula sequence by writing an abstract, uncontextualized algebraic equation on the board first. Instead, the first fifteen minutes of instructional delivery must anchor the topic within an intuitive, real-world commercial case study or interactive data chart. Building contextual confidence using practical business logic first helps bypass a student's defensive emotional shield before formal mathematical notation is exposed, ensuring equitable retention across student pipelines.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kabula Yi | UBC Graduate Portfolio Research Portal. Developed in strict accordance with TCPS 2 Human Research Governance Mandates.</p>
+    </footer>
+
+    <script>
+        function switchSubpage(targetPageId) {
+            // 1. Locate and deactivate all subpage content panels
+            const pages = document.querySelectorAll('.subpage');
+            pages.forEach(page => {
+                page.classList.remove('active-page');
+            });
+
+            // 2. Locate and deactivate active button highlights on top menu bar
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // 3. Activate the chosen subpage and synchronize its corresponding top menu button
+            const activeTargetPage = document.getElementById(`page-${targetPageId}`);
+            if (activeTargetPage) {
+                activeTargetPage.classList.add('active-page');
+            }
+            
+            const matchingButton = document.querySelector(`.nav-btn[onclick*="${targetPageId}"]`);
+            if (matchingButton) {
+                matchingButton.classList.add('active');
+            }
+
+            // 4. Smooth scroll back to top boundary to complete multi-page user experience
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
