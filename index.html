@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mathematics Anxiety Spillover: Research Proposal</title>
-<meta name="description" content="A mixed-methods research proposal investigating mathematics anxiety spillover into other academic subjects in secondary school. By Kabula Yi.">
+<title>Mathematics Anxiety Spillover: Interactive Research Hub</title>
+<meta name="description" content="An interactive hub for a mixed-methods research proposal on mathematics anxiety spillover into other secondary-school subjects. By Kabula Yi.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -18,78 +18,77 @@
   body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);
     background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased}
   h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;line-height:1.14;letter-spacing:-.01em}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-  a{color:var(--primary);text-decoration:none}
-  /* progress bar */
-  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
-    background:linear-gradient(90deg,var(--primary),var(--teal));transition:width .1s linear}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  a{color:var(--primary)}
   /* NAV */
   header.nav{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.9);
     backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces';font-weight:700;font-size:1.02rem;color:var(--ink)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces';font-weight:700;font-size:1rem;color:var(--ink)}
   .brand .dot{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--primary),var(--teal));display:grid;place-items:center;flex:none}
-  .navlinks{display:flex;gap:20px;font-size:.9rem;font-weight:500}
-  .navlinks a{color:var(--ink-soft);position:relative;padding:4px 0}
-  .navlinks a.active,.navlinks a:hover{color:var(--primary)}
-  .navlinks a.active::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--primary);border-radius:2px}
-  @media(max-width:900px){.navlinks{display:none}}
-  /* HERO */
-  .hero{padding:70px 0 56px;position:relative;overflow:hidden;background:
-     radial-gradient(900px 440px at 82% -12%,rgba(15,155,142,.12),transparent 60%),
-     radial-gradient(720px 400px at -5% 0%,rgba(47,74,138,.12),transparent 55%)}
-  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:28px}}
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:600;letter-spacing:.08em;
+  .nav .who{font-size:.85rem;color:var(--ink-soft)}
+  @media(max-width:620px){.nav .who{display:none}}
+  /* HUB HERO */
+  .hub{padding:46px 0 30px;position:relative;overflow:hidden;background:
+     radial-gradient(900px 460px at 85% -14%,rgba(15,155,142,.13),transparent 60%),
+     radial-gradient(760px 420px at -8% 0%,rgba(47,74,138,.13),transparent 55%)}
+  .hub .wrap{display:grid;grid-template-columns:0.92fr 1.08fr;gap:42px;align-items:center}
+  @media(max-width:900px){.hub .wrap{grid-template-columns:1fr;gap:24px}}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:600;letter-spacing:.08em;
     text-transform:uppercase;color:var(--teal);background:rgba(15,155,142,.10);padding:6px 14px;border-radius:999px}
-  .hero h1{font-size:clamp(2rem,4.6vw,3.4rem);margin:18px 0 12px;color:var(--ink)}
-  .hero .subtitle{font-style:italic;color:var(--ink-soft);font-family:'Fraunces';font-size:1.16rem;margin-bottom:18px}
-  .hero p.lede{font-size:1.1rem;color:var(--ink-soft);max-width:50ch}
-  .titlecard{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:16px;
-    padding:18px 24px;box-shadow:var(--shadow);font-size:.92rem;color:var(--ink-soft)}
-  .titlecard .row{display:flex;justify-content:space-between;gap:16px;padding:6px 0;border-bottom:1px dashed var(--line)}
-  .titlecard .row:last-child{border-bottom:none}
-  .titlecard b{color:var(--ink);font-weight:600;text-align:right}
-  .cta{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn{padding:12px 22px;border-radius:12px;font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
-  .btn.primary{background:var(--primary);color:#fff;box-shadow:var(--shadow)}
-  .btn.primary:hover{background:var(--primary-deep)}
-  .btn.ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
-  figure{margin:0}
-  .figwrap{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:var(--shadow)}
-  figcaption{margin-top:14px;font-size:.84rem;color:var(--ink-soft);text-align:center}
-  /* GLANCE BAND */
-  .glance{background:var(--primary-deep);color:#dbe3f5;padding:34px 0}
-  .glance .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  @media(max-width:860px){.glance .wrap{grid-template-columns:1fr 1fr}}
-  @media(max-width:520px){.glance .wrap{grid-template-columns:1fr}}
-  .gitem{display:flex;gap:14px;align-items:flex-start}
-  .gitem .gi{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.10);display:grid;place-items:center;flex:none}
-  .gitem .gk{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#9fb0d8;font-weight:600}
-  .gitem .gv{font-family:'Fraunces';font-weight:600;color:#fff;font-size:1.02rem;line-height:1.25;margin-top:2px}
-  /* LAYOUT */
-  .layout{display:grid;grid-template-columns:236px minmax(0,1fr);gap:56px;align-items:start;padding:52px 0 30px}
-  @media(max-width:900px){.layout{grid-template-columns:1fr;gap:8px}}
-  .toc{position:sticky;top:90px}
-  @media(max-width:900px){.toc{position:static;margin-bottom:18px;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:#fff}}
-  .toc .tlabel{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin:0 0 10px 12px}
-  .toc a{display:flex;gap:10px;align-items:center;padding:8px 12px;border-left:2px solid var(--line);color:var(--ink-soft);font-size:.9rem}
-  .toc a .n{font-family:'Fraunces';font-weight:700;color:var(--primary);font-size:.85rem;opacity:.7}
-  .toc a:hover{color:var(--primary);background:rgba(47,74,138,.04)}
-  .toc a.active{border-left-color:var(--primary);color:var(--primary-deep);background:rgba(47,74,138,.07);font-weight:600}
-  /* SECTIONS */
-  .docsec{scroll-margin-top:84px;padding:18px 0 30px}
-  .sechead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
-  .sechead .num{font-family:'Fraunces';font-weight:700;font-size:2.4rem;color:var(--primary);line-height:1}
-  .sechead h2{font-size:clamp(1.5rem,2.7vw,2.1rem);color:var(--ink)}
-  .rule{height:3px;width:64px;background:linear-gradient(90deg,var(--primary),var(--teal));border-radius:3px;margin:0 0 18px}
+  .hub h1{font-size:clamp(1.9rem,4.2vw,3rem);margin:16px 0 10px;color:var(--ink)}
+  .hub .subtitle{font-style:italic;color:var(--ink-soft);font-family:'Fraunces';font-size:1.08rem;margin-bottom:16px}
+  .author-line{font-size:.9rem;color:var(--ink-soft);margin-bottom:18px}
+  .author-line b{color:var(--ink)}
+  /* node info card */
+  #nodeinfo{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:var(--shadow);min-height:150px;transition:.25s}
+  #nodeinfo .tagrow{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  #nodeinfo .ntype{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+  #nodeinfo h3{font-size:1.18rem;color:var(--ink)}
+  #nodeinfo p{font-size:.95rem;color:var(--ink-soft);margin-top:4px}
+  #nodeinfo .hint{font-size:.78rem;color:var(--teal);margin-top:10px;font-weight:600}
+  .t-adj{background:rgba(15,155,142,.12);color:var(--teal)}
+  .t-dist{background:rgba(232,103,76,.12);color:var(--coral)}
+  .t-src{background:rgba(47,74,138,.12);color:var(--primary)}
+  /* interactive diagram */
+  .diagram{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--shadow)}
+  .node{cursor:pointer;transition:transform .18s}
+  .node:hover{transform:scale(1.05)}
+  .node:focus{outline:none}
+  .node:focus .ring{opacity:1}
+  .ring{opacity:0;transition:.18s}
+  .node.on .ring{opacity:1}
+  .pathway{transition:.25s}
+  .diagram.has-sel .pathway{opacity:.16}
+  .diagram.has-sel .pathway.on{opacity:1;stroke-width:4}
+  .pulse{transform-origin:center;animation:pulse 2.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:.08}}
+  .difoot{font-size:.78rem;color:var(--ink-soft);text-align:center;padding:6px 8px 4px}
+  /* TABS */
+  .tabsbar{position:sticky;top:60px;z-index:40;background:rgba(251,250,247,.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line)}
+  .tabsbar .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:8px;padding-bottom:8px}
+  .tab{flex:none;border:1px solid transparent;background:none;font-family:'Inter';font-size:.92rem;font-weight:600;
+    color:var(--ink-soft);padding:9px 16px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .tab .tn{font-family:'Fraunces';font-weight:700;opacity:.6;font-size:.85rem}
+  .tab:hover{color:var(--primary);background:rgba(47,74,138,.06)}
+  .tab.active{background:var(--primary);color:#fff;box-shadow:var(--shadow)}
+  .tab.active .tn{opacity:.85;color:#fff}
+  /* VIEWS */
+  .views{padding:40px 0 10px;min-height:60vh}
+  .view{animation:fade .4s ease}
+  .js .view{display:none}
+  .js .view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .viewhead{display:flex;align-items:baseline;gap:14px;margin-bottom:4px}
+  .viewhead .num{font-family:'Fraunces';font-weight:700;font-size:2.3rem;color:var(--primary);line-height:1}
+  .viewhead h2{font-size:clamp(1.5rem,2.7vw,2.1rem);color:var(--ink)}
+  .rule{height:3px;width:64px;background:linear-gradient(90deg,var(--primary),var(--teal));border-radius:3px;margin:0 0 20px}
   .prose{max-width:74ch}
   .prose h3{font-size:1.18rem;margin:26px 0 8px;color:var(--primary-deep)}
   .prose p{margin:0 0 16px;color:#26334e}
-  /* pull quote */
-  .pull{max-width:80ch;margin:30px 0;padding:6px 0 6px 26px;border-left:5px solid var(--coral);
-    font-family:'Fraunces';font-weight:600;font-size:clamp(1.3rem,2.4vw,1.7rem);color:var(--primary-deep);line-height:1.3}
-  /* RQ */
+  .pull{max-width:80ch;margin:28px 0;padding:6px 0 6px 26px;border-left:5px solid var(--coral);
+    font-family:'Fraunces';font-weight:600;font-size:clamp(1.25rem,2.3vw,1.6rem);color:var(--primary-deep);line-height:1.3}
   .callout{background:linear-gradient(135deg,rgba(47,74,138,.07),rgba(15,155,142,.07));
     border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:18px 0;max-width:80ch}
   .callout .k{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
@@ -99,9 +98,8 @@
   ol.rq li::before{content:'RQ' counter(rq);position:absolute;left:14px;top:16px;padding:4px 7px;border-radius:7px;
     background:var(--primary);color:#fff;font-weight:700;font-size:.72rem;font-family:'Inter'}
   ol.rq b{color:var(--primary-deep)}
-  /* stats / cards / gaps */
   .stats,.grid3,.gaps{display:grid;gap:18px;margin:24px 0}
-  .stats{grid-template-columns:repeat(3,1fr)} .grid3{grid-template-columns:repeat(3,1fr)} .gaps{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:repeat(3,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}.gaps{grid-template-columns:repeat(3,1fr)}
   @media(max-width:760px){.stats,.grid3,.gaps{grid-template-columns:1fr}}
   .stat,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
   .stat .num{font-family:'Fraunces';font-weight:700;font-size:1.9rem;color:var(--primary);line-height:1}
@@ -109,10 +107,8 @@
   .card h4{font-size:1.06rem;margin:12px 0 6px;color:var(--primary-deep)}
   .card p{color:var(--ink-soft);font-size:.93rem}
   .icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#fff}
-  .gaps .card{border-top:4px solid var(--coral);counter-increment:g}
-  .gaps{counter-reset:g}
-  .gapno{font-family:'Fraunces';font-weight:700;color:var(--coral);font-size:1.5rem}
-  /* flow */
+  .gaps{counter-reset:g}.gaps .card{border-top:4px solid var(--coral)}
+  .gapno{font-family:'Fraunces';font-weight:700;color:var(--coral);font-size:1.4rem}
   .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:12px;margin:24px 0}
   @media(max-width:860px){.flow{grid-template-columns:1fr}.flow .arrow{transform:rotate(90deg);justify-self:center}}
   .phase{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
@@ -120,9 +116,6 @@
   .phase h4{font-size:1.04rem;margin:8px 0 6px;color:var(--primary-deep)}
   .phase p{font-size:.88rem;color:var(--ink-soft)}
   .arrow{display:grid;place-items:center;color:var(--primary);font-size:1.5rem}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin:24px 0}
-  @media(max-width:860px){.two{grid-template-columns:1fr;gap:22px}}
-  /* TABLE */
   .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin:16px 0}
   table.log{border-collapse:collapse;width:100%;min-width:780px;font-size:.82rem;background:#fff}
   table.log th,table.log td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
@@ -132,32 +125,28 @@
   ul.prisma{list-style:none;max-width:80ch;margin:14px 0;display:grid;gap:8px}
   ul.prisma li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 16px;font-size:.92rem;color:#26334e}
   ul.prisma li b{color:var(--primary-deep)}
-  .prose ul{margin:0 0 16px 20px;color:#26334e}.prose ul li{margin:6px 0}
   ol.plain{margin:0 0 16px 20px;color:#26334e}ol.plain li{margin:7px 0}
-  /* references */
   .reffull{max-width:84ch;font-size:.9rem;color:#26334e}
   .reffull p{margin:0 0 12px;padding-left:1.8em;text-indent:-1.8em;line-height:1.55}
-  /* appendix accordion */
   details.ax{background:#fff;border:1px solid var(--line);border-radius:14px;margin:12px 0;box-shadow:var(--shadow);overflow:hidden}
-  details.ax > summary{cursor:pointer;list-style:none;padding:16px 20px;font-family:'Fraunces';font-weight:600;font-size:1.08rem;color:var(--primary-deep);display:flex;align-items:center;gap:10px}
+  details.ax > summary{cursor:pointer;list-style:none;padding:16px 20px;font-family:'Fraunces';font-weight:600;font-size:1.06rem;color:var(--primary-deep);display:flex;align-items:center;gap:10px}
   details.ax > summary::-webkit-details-marker{display:none}
   details.ax > summary .chev{margin-left:auto;transition:transform .2s;color:var(--primary)}
   details.ax[open] > summary .chev{transform:rotate(90deg)}
   details.ax .axbody{padding:0 20px 18px}
-  /* footer */
-  footer{background:var(--primary-deep);color:#cfd7ea;padding:50px 0 38px;margin-top:30px}
-  footer h3{color:#fff;font-size:1.25rem;margin-bottom:8px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin:24px 0}
+  @media(max-width:860px){.two{grid-template-columns:1fr;gap:22px}}
+  .figwrap{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
+  figure{margin:0}figcaption{margin-top:12px;font-size:.84rem;color:var(--ink-soft);text-align:center}
+  footer{background:var(--primary-deep);color:#cfd7ea;padding:46px 0 36px;margin-top:30px}
+  footer h3{color:#fff;font-size:1.2rem;margin-bottom:8px}
   footer .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:30px}
   @media(max-width:760px){footer .wrap{grid-template-columns:1fr}}
-  .ai-note{font-size:.8rem;color:#8c99bd;margin-top:24px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}
+  .ai-note{font-size:.8rem;color:#8c99bd;margin-top:22px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}
   .badge{display:inline-block;font-size:.74rem;font-weight:600;color:#fff;background:rgba(255,255,255,.12);padding:5px 12px;border-radius:999px;margin:4px 6px 0 0}
-  /* reveal animation (only when JS active) */
-  .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
-  .js .reveal.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
-<div id="progress"></div>
 
 <!-- NAV -->
 <header class="nav">
@@ -165,602 +154,504 @@
     <div class="brand"><span class="dot">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 20c4-9 12-9 16 0" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="7" r="3" fill="#fff"/></svg>
     </span>Mathematics Anxiety Spillover</div>
-    <nav class="navlinks">
-      <a href="#intro">Introduction</a>
-      <a href="#lit">Literature</a>
-      <a href="#rq">Questions</a>
-      <a href="#method">Methodology</a>
-      <a href="#refs">References</a>
-      <a href="#appendix">Appendices</a>
-    </nav>
+    <div class="who">Research proposal &middot; Kabula Yi</div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
+<!-- HUB HERO -->
+<section class="hub">
   <div class="wrap">
     <div>
-      <span class="eyebrow">Research Proposal · Mixed Methods · Secondary Education</span>
+      <span class="eyebrow">Interactive Research Hub · Mixed Methods</span>
       <h1>Beyond the Mathematics Classroom</h1>
       <p class="subtitle">Investigating Mathematics Anxiety Spillover into Other Academic Subjects in Secondary School</p>
-      <p class="lede">Anxiety about mathematics may not stay in mathematics. This study asks whether it travels
-        into how teenagers feel and perform in their other subjects, and what schools can do about it.</p>
-      <div class="titlecard">
-        <div class="row"><span>Author</span><b>Kabula Yi</b></div>
-        <div class="row"><span>Student number</span><b>84729664</b></div>
-        <div class="row"><span>Course</span><b>EDUC_V 500 921, Research Methodology in Education</b></div>
-        <div class="row"><span>Instructor</span><b>Yilin Pan</b></div>
-        <div class="row"><span>Submission date</span><b>June 26, 2026</b></div>
-      </div>
-      <div class="cta">
-        <a class="btn primary" href="#intro">Read the proposal
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="btn ghost" href="#rq">See the research questions</a>
+      <p class="author-line"><b>Kabula Yi</b> &middot; EDUC_V 500 921, Research Methodology in Education &middot; Instructor: Yilin Pan</p>
+      <div id="nodeinfo" role="status" aria-live="polite">
+        <div class="tagrow"><span class="ntype t-src">The source</span></div>
+        <h3>Mathematics anxiety</h3>
+        <p>Tension or fear that interferes with mathematics. This study asks how far that feeling travels into other
+          subjects once general and test anxiety are held constant.</p>
+        <p class="hint">Click a subject in the diagram to explore a pathway &rarr;</p>
       </div>
     </div>
 
-    <figure class="figwrap reveal" aria-label="Illustration of mathematics anxiety radiating to other subjects">
-      <svg viewBox="0 0 460 360" width="100%" role="img" aria-labelledby="heroTitle">
-        <title id="heroTitle">A student at a desk; worry from mathematics ripples outward to other subjects</title>
-        <defs>
-          <radialGradient id="ripple" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#e8674c" stop-opacity=".30"/>
-            <stop offset="100%" stop-color="#e8674c" stop-opacity="0"/>
-          </radialGradient>
-          <linearGradient id="deskg" x1="0" x2="1"><stop offset="0" stop-color="#2f4a8a"/><stop offset="1" stop-color="#0f9b8e"/></linearGradient>
-        </defs>
-        <circle cx="150" cy="150" r="150" fill="url(#ripple)"/>
-        <circle cx="150" cy="150" r="108" fill="none" stroke="#e8674c" stroke-opacity=".25" stroke-width="2" stroke-dasharray="4 7"/>
-        <circle cx="150" cy="150" r="66" fill="none" stroke="#e8674c" stroke-opacity=".4" stroke-width="2" stroke-dasharray="4 7"/>
-        <rect x="70" y="232" width="160" height="14" rx="4" fill="url(#deskg)"/>
-        <rect x="86" y="246" width="10" height="46" rx="3" fill="#1d2f5c"/>
-        <rect x="204" y="246" width="10" height="46" rx="3" fill="#1d2f5c"/>
-        <circle cx="150" cy="150" r="26" fill="#f0a830"/>
-        <rect x="120" y="180" width="60" height="58" rx="20" fill="#2f4a8a"/>
-        <text x="150" y="100" font-size="26" text-anchor="middle" fill="#e8674c" font-family="Fraunces, serif">&#8721; &#247; &#8730;</text>
-        <path d="M138 145q12 -10 24 0" stroke="#1d2f5c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-        <g font-family="Inter,sans-serif" font-size="12" font-weight="700">
-          <g><rect x="300" y="58" width="92" height="34" rx="10" fill="#fff" stroke="#0f9b8e"/><text x="346" y="80" text-anchor="middle" fill="#0f9b8e">Science</text></g>
-          <g><rect x="330" y="150" width="104" height="34" rx="10" fill="#fff" stroke="#f0a830"/><text x="382" y="172" text-anchor="middle" fill="#c9870f">Geography</text></g>
-          <g><rect x="300" y="244" width="96" height="34" rx="10" fill="#fff" stroke="#e8674c"/><text x="348" y="266" text-anchor="middle" fill="#e8674c">History</text></g>
-          <g><rect x="232" y="300" width="110" height="34" rx="10" fill="#fff" stroke="#2f4a8a"/><text x="287" y="322" text-anchor="middle" fill="#2f4a8a">Languages</text></g>
-        </g>
-        <g stroke-width="2" fill="none" stroke-dasharray="3 6" stroke-linecap="round">
-          <path d="M176 138 C250 92, 280 80, 300 76" stroke="#0f9b8e"/>
-          <path d="M178 158 C260 160, 300 166, 330 167" stroke="#f0a830"/>
-          <path d="M176 176 C250 230, 280 252, 300 258" stroke="#e8674c"/>
-          <path d="M158 196 C190 280, 220 300, 250 312" stroke="#2f4a8a"/>
-        </g>
-      </svg>
-      <figcaption>Conceptual illustration: anxiety rooted in mathematics may ripple outward toward
-        math-adjacent and math-distant subjects.</figcaption>
-    </figure>
+    <div>
+      <div class="diagram" id="diagram">
+        <svg viewBox="0 0 460 360" width="100%" role="img" aria-label="Interactive diagram. Click mathematics anxiety or a subject to learn more.">
+          <!-- pulsing source halo -->
+          <circle cx="230" cy="180" r="120" fill="#2f4a8a" opacity=".06" class="pulse"/>
+          <!-- pathways -->
+          <g fill="none" stroke-linecap="round">
+            <path id="p-science"   class="pathway on-color-adj"  d="M230 180 C160 120,120 96,86 80"   stroke="#0f9b8e" stroke-width="3"/>
+            <path id="p-geography" class="pathway"               d="M230 180 C160 240,120 264,86 280" stroke="#0f9b8e" stroke-width="3"/>
+            <path id="p-history"   class="pathway"               d="M230 180 C320 120,360 96,392 80"  stroke="#e8674c" stroke-width="3" stroke-dasharray="6 6"/>
+            <path id="p-languages" class="pathway"               d="M230 180 C320 240,360 264,392 280" stroke="#e8674c" stroke-width="3" stroke-dasharray="6 6"/>
+          </g>
+          <!-- centre node -->
+          <g class="node" data-key="centre" tabindex="0" role="button" aria-label="Mathematics anxiety, the source">
+            <circle class="ring" cx="230" cy="180" r="68" fill="none" stroke="#2f4a8a" stroke-width="3" opacity="0"/>
+            <circle cx="230" cy="180" r="58" fill="#2f4a8a"/>
+            <text x="230" y="173" text-anchor="middle" fill="#fff" font-family="Fraunces,serif" font-weight="700" font-size="15">Mathematics</text>
+            <text x="230" y="193" text-anchor="middle" fill="#cdd7f0" font-family="Inter,sans-serif" font-size="13">anxiety</text>
+          </g>
+          <!-- subject nodes -->
+          <g class="node" data-key="science" tabindex="0" role="button" aria-label="Science, math-adjacent">
+            <circle class="ring" cx="68" cy="72" r="42" fill="none" stroke="#0f9b8e" stroke-width="3"/>
+            <circle cx="68" cy="72" r="36" fill="#0f9b8e"/>
+            <text x="68" y="76" text-anchor="middle" fill="#fff" font-family="Inter" font-size="12" font-weight="600">Science</text>
+          </g>
+          <g class="node" data-key="geography" tabindex="0" role="button" aria-label="Geography, math-adjacent">
+            <circle class="ring" cx="68" cy="288" r="42" fill="none" stroke="#0f9b8e" stroke-width="3"/>
+            <circle cx="68" cy="288" r="36" fill="#0f9b8e"/>
+            <text x="68" y="284" text-anchor="middle" fill="#fff" font-family="Inter" font-size="11" font-weight="600">Geo-</text>
+            <text x="68" y="298" text-anchor="middle" fill="#fff" font-family="Inter" font-size="11" font-weight="600">graphy</text>
+          </g>
+          <g class="node" data-key="history" tabindex="0" role="button" aria-label="History, math-distant">
+            <circle class="ring" cx="392" cy="72" r="42" fill="none" stroke="#e8674c" stroke-width="3"/>
+            <circle cx="392" cy="72" r="36" fill="#fff" stroke="#e8674c" stroke-width="2.5"/>
+            <text x="392" y="76" text-anchor="middle" fill="#e8674c" font-family="Inter" font-size="12" font-weight="600">History</text>
+          </g>
+          <g class="node" data-key="languages" tabindex="0" role="button" aria-label="Languages, math-distant">
+            <circle class="ring" cx="392" cy="288" r="42" fill="none" stroke="#e8674c" stroke-width="3"/>
+            <circle cx="392" cy="288" r="36" fill="#fff" stroke="#e8674c" stroke-width="2.5"/>
+            <text x="392" y="284" text-anchor="middle" fill="#e8674c" font-family="Inter" font-size="11" font-weight="600">Lang-</text>
+            <text x="392" y="298" text-anchor="middle" fill="#e8674c" font-family="Inter" font-size="11" font-weight="600">uages</text>
+          </g>
+          <!-- legend -->
+          <g font-family="Inter" font-size="11">
+            <circle cx="170" cy="338" r="6" fill="#0f9b8e"/><text x="182" y="342" fill="#42506e">Math-adjacent</text>
+            <circle cx="282" cy="338" r="6" fill="#fff" stroke="#e8674c" stroke-width="2"/><text x="294" y="342" fill="#42506e">Math-distant</text>
+          </g>
+        </svg>
+        <div class="difoot">An interactive map of the study. Select a node to see how spillover might reach it.</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- AT A GLANCE -->
-<section class="glance">
+<!-- TABS -->
+<nav class="tabsbar" aria-label="Sections of the proposal">
   <div class="wrap">
-    <div class="gitem"><span class="gi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="#9fd6ce" stroke-width="2" stroke-linecap="round"/></svg></span>
-      <div><div class="gk">Design</div><div class="gv">Explanatory sequential mixed methods</div></div></div>
-    <div class="gitem"><span class="gi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="#9fd6ce" stroke-width="2"/><path d="M3 20c1-4 11-4 12 0M16 6a3 3 0 0 1 0 6" stroke="#9fd6ce" stroke-width="2" stroke-linecap="round"/></svg></span>
-      <div><div class="gk">Participants</div><div class="gv">250 to 350 students, ages 13 to 16</div></div></div>
-    <div class="gitem"><span class="gi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6" stroke="#9fd6ce" stroke-width="2" stroke-linejoin="round"/></svg></span>
-      <div><div class="gk">Setting</div><div class="gv">Two or three secondary schools</div></div></div>
-    <div class="gitem"><span class="gi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 8l7-5 7 5" stroke="#9fd6ce" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <div><div class="gk">Frameworks</div><div class="gv">Attentional Control &amp; Control-Value theory</div></div></div>
+    <button class="tab active" data-view="overview"><span class="tn">2</span> Overview</button>
+    <button class="tab" data-view="lit"><span class="tn">3</span> Literature</button>
+    <button class="tab" data-view="rq"><span class="tn">4</span> Questions</button>
+    <button class="tab" data-view="method"><span class="tn">5</span> Methodology</button>
+    <button class="tab" data-view="refs"><span class="tn">6</span> References</button>
+    <button class="tab" data-view="appendix"><span class="tn">7</span> Appendices</button>
   </div>
-</section>
+</nav>
 
-<!-- DOCUMENT BODY -->
-<div class="wrap">
-  <div class="layout">
+<div class="wrap views" id="views">
 
-    <aside class="toc">
-      <p class="tlabel">Contents</p>
-      <a href="#intro"><span class="n">2</span> Introduction</a>
-      <a href="#lit"><span class="n">3</span> Literature Review</a>
-      <a href="#rq"><span class="n">4</span> Research Questions</a>
-      <a href="#method"><span class="n">5</span> Design &amp; Methodology</a>
-      <a href="#refs"><span class="n">6</span> References</a>
-      <a href="#appendix"><span class="n">7</span> Appendices</a>
-      <a href="#ai"><span class="n">8</span> AI Use</a>
-    </aside>
+  <!-- OVERVIEW -->
+  <section class="view active" id="view-overview">
+    <div class="viewhead"><span class="num">2</span><h2>Introduction</h2></div>
+    <div class="rule"></div>
+    <div class="prose">
+      <p>Mathematics anxiety is a feeling of tension, apprehension, or fear that interferes with mathematical
+        performance (Ashcraft &amp; Kirk, 2001). It is one of the most thoroughly documented emotional barriers to
+        learning. Large international assessments suggest that a sizeable share of secondary students feel anxious
+        about mathematics, and that this anxiety is reliably linked to weaker mathematics achievement across very
+        different national systems (Foley et al., 2017; OECD, 2013). Researchers no longer view the problem as a
+        simple by-product of low ability. Anxiety about mathematics appears to be a partly independent cause of
+        underperformance, and it pushes students away from the subject and the careers that depend on it (Dowker et
+        al., 2016; Maloney &amp; Beilock, 2012).</p>
+      <p>The consequences reach past test scores. Students who feel anxious tend to disengage, skip optional
+        quantitative courses, and avoid science, technology, engineering, and mathematics pathways, which narrows
+        their later choices (Maloney &amp; Beilock, 2012; OECD, 2013). Because these avoidance habits form during
+        adolescence, the secondary years are an important time to ask how far the influence of this anxiety actually
+        extends.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num" data-count="60" data-suffix="+ years">60+ years</div><div class="lab">of research on mathematics anxiety, yet its spillover into other subjects remains largely untested (Dowker et al., 2016).</div></div>
+      <div class="stat"><div class="num">Global</div><div class="lab">the link between mathematics anxiety and lower performance appears across many countries (Foley et al., 2017; OECD, 2013).</div></div>
+      <div class="stat"><div class="num">Ages 13 to 16</div><div class="lab">the secondary band where this anxiety emerges, hardens, and shapes future choices (Cargnelutti et al., 2017).</div></div>
+    </div>
+    <div class="prose">
+      <p>Almost all of the existing work, though, keeps the question inside a single subject. It asks how anxiety
+        about mathematics affects mathematics. Students, however, do not experience their timetable as a set of
+        sealed boxes. Secondary schooling now folds quantitative reasoning into many courses, including graphs and
+        statistics in geography and biology, formulae in physics and chemistry, and numerical reasoning in economics
+        and business studies. The cognitive and emotional systems that mathematics anxiety disrupts are not subject
+        specific either.</p>
+    </div>
+    <p class="pull">Does anxiety that begins in mathematics spill over and shape how students feel and perform in
+      their other subjects?</p>
+    <div class="prose">
+      <p>There are good theoretical reasons to expect that it might. On the cognitive side, anxiety about
+        mathematics consumes working memory through intrusive worry, leaving fewer resources for any demanding task
+        (Ashcraft &amp; Kirk, 2001; Eysenck et al., 2007), and nothing about that mechanism confines it to numbers.
+        On the emotional side, the appraisals of control and value that drive achievement emotions, along with the
+        academic self-concepts beneath them, can generalise across related subjects (Pekrun, 2006). There is also a
+        concrete precedent. Work on statistics anxiety shows that students carry mathematics-related apprehension
+        into a neighbouring quantitative field (Paechter et al., 2017).</p>
+      <p>The topic matters for both theory and practice. Theoretically, showing whether and how this anxiety
+        generalises would sharpen our models of achievement emotion and settle whether mathematics anxiety is a
+        narrow phenomenon or the visible edge of something broader. Practically, the stakes are real. If the anxiety
+        spills over, then programmes that reduce it could pay off well beyond the mathematics room, and treating it
+        as the mathematics department's problem alone would badly understate its cost. Given that this anxiety tends
+        to emerge and harden across the move from primary to secondary school (Cargnelutti et al., 2017), and that
+        it can be passed on by anxious teachers and parents (Beilock et al., 2010), the secondary phase is a fitting
+        and under-studied place to look for spillover.</p>
+    </div>
+  </section>
 
-    <main>
+  <!-- LITERATURE -->
+  <section class="view" id="view-lit">
+    <div class="viewhead"><span class="num">3</span><h2>Literature Review</h2></div>
+    <div class="rule"></div>
+    <div class="prose">
+      <h3>3.1 What is known about mathematics anxiety</h3>
+      <p>Mathematics anxiety has been studied for more than sixty years, and it is dependably tied to weaker
+        mathematics performance. Two separate meta-analyses put the correlation in the moderate, negative range
+        (Hembree, 1990; Ma, 1999). The relationship also runs in both directions. Poor performance can breed
+        anxiety, anxiety can drag down performance, and over time each feeds the other (Carey et al., 2016). The
+        leading cognitive explanation points to working memory. Anxious thoughts occupy limited executive and
+        storage capacity, so performance suffers most on the problems that demand the most mental effort (Ashcraft
+        &amp; Kirk, 2001; Ramirez et al., 2013, 2018). Brain imaging backs up the emotional weight of the
+        experience: for highly anxious individuals, simply anticipating mathematics activates neural networks
+        associated with pain and threat (Lyons &amp; Beilock, 2012; Suárez-Pellicioni et al., 2016). This account
+        fits closely with Attentional Control Theory, which holds that anxiety pulls attention toward threat and
+        weakens the goal-directed attentional system (Eysenck et al., 2007). That mechanism, by its nature, is not
+        specific to mathematical content, which is precisely why spillover is plausible.</p>
+      <h3>3.2 Measurement and the distinctiveness of mathematics anxiety</h3>
+      <p>A second important development concerns measurement. Researchers have shown that anxiety about mathematics
+        is a distinct construct rather than a relabelling of general nerves. The Abbreviated Math Anxiety Scale
+        (Hopko et al., 2003) and its version for children and adolescents, the modified Abbreviated Math Anxiety
+        Scale (Carey et al., 2017), have both been validated in large samples. Carey et al. (2017) found that the
+        items load onto a factor separable from test anxiety and from general anxiety. Devine et al. (2012) reported
+        that mathematics anxiety still predicted mathematics performance after test anxiety was controlled, and Hill
+        et al. (2016) showed that it is distinguishable from general anxiety in both primary and secondary students
+        while growing stronger with age. This distinctiveness is the precondition for any claim about
+        subject-specific spillover. Only by measuring and statistically holding constant general and test anxiety can
+        a study credibly attribute effects in other subjects to mathematics anxiety in particular.</p>
+      <h3>3.3 Evidence that hints at spillover</h3>
+      <p>Several lines of work point toward cross-subject transfer without testing it directly. First, mathematics
+        anxiety correlates with general and test anxiety, which suggests a shared emotional base (Carey et al., 2017;
+        Hembree, 1990). Second, the statistics anxiety literature shows students importing mathematics-related
+        apprehension into a related quantitative field. Paechter et al. (2017) found that mathematics anxiety and
+        statistics anxiety share components yet also make independent contributions to statistics performance, so
+        transfer and subject-specificity appear together. Third, theory predicts that spillover could be positive or
+        negative. Pekrun's (2006) control-value theory implies that anxiety should generalise to subjects that share
+        low control and high threat appraisals. Marsh's (1986) internal and external frame of reference model points
+        the other way for verbal subjects, because a weak mathematics self-concept can lift verbal self-concept by
+        contrast, which would dampen or even reverse spillover into language and humanities courses. These competing
+        predictions remain largely untested for mathematics anxiety in secondary school, and they are the reason this
+        study separates math-adjacent from math-distant subjects instead of lumping all other subjects together.</p>
+    </div>
+    <h3 class="prose" style="max-width:none">3.4 Gaps and contribution</h3>
+    <p class="prose" style="margin-bottom:4px">Three gaps follow from this review, and this study is built to address
+      all three.</p>
+    <div class="gaps">
+      <div class="card"><div class="gapno">Gap 1</div><h4>A single-subject focus</h4>
+        <p>Anxiety about mathematics is studied overwhelmingly against mathematics outcomes, so direct spillover
+          across several subjects is rarely examined.</p></div>
+      <div class="card"><div class="gapno">Gap 2</div><h4>Specificity is rarely isolated</h4>
+        <p>Studies seldom control at once for general anxiety, test anxiety, and prior attainment, so apparent
+          spillover may simply be generalised anxiety in disguise.</p></div>
+      <div class="card"><div class="gapno">Gap 3</div><h4>Mechanism and meaning sit apart</h4>
+        <p>Quantitative work cannot explain why spillover happens, while the small qualitative literature does not
+          test how far it generalises.</p></div>
+    </div>
+    <div class="prose">
+      <p>This study takes on all three. It measures the association between mathematics anxiety and outcomes in both
+        math-adjacent and math-distant subjects. It isolates subject-specific effects by controlling for general
+        anxiety, test anxiety, and prior attainment. And it uses a sequential mixed-methods design so that students'
+        own accounts can explain the statistical pattern, including the cases that do not fit. The contribution is a
+        fuller, curriculum-wide picture of how far mathematics anxiety reaches, with direct implications for
+        whole-school approaches to anxiety and for the returns we should expect from interventions.</p>
+    </div>
+  </section>
 
-      <!-- 2. INTRODUCTION -->
-      <section id="intro" class="docsec reveal">
-        <div class="sechead"><span class="num">2</span><h2>Introduction</h2></div>
-        <div class="rule"></div>
-        <div class="prose">
-          <p>Mathematics anxiety is a feeling of tension, apprehension, or fear that interferes with mathematical
-            performance (Ashcraft &amp; Kirk, 2001). It is one of the most thoroughly documented emotional barriers
-            to learning. Large international assessments suggest that a sizeable share of secondary students feel
-            anxious about mathematics, and that this anxiety is reliably linked to weaker mathematics achievement
-            across very different national systems (Foley et al., 2017; OECD, 2013). Researchers no longer view the
-            problem as a simple by-product of low ability. Anxiety about mathematics appears to be a partly
-            independent cause of underperformance, and it pushes students away from the subject and the careers
-            that depend on it (Dowker et al., 2016; Maloney &amp; Beilock, 2012).</p>
-          <p>The consequences reach past test scores. Students who feel anxious tend to disengage, skip optional
-            quantitative courses, and avoid science, technology, engineering, and mathematics pathways, which
-            narrows their later choices (Maloney &amp; Beilock, 2012; OECD, 2013). Because these avoidance habits
-            form during adolescence, the secondary years are an important time to ask how far the influence of this
-            anxiety actually extends.</p>
+  <!-- QUESTIONS -->
+  <section class="view" id="view-rq">
+    <div class="viewhead"><span class="num">4</span><h2>Research Questions</h2></div>
+    <div class="rule"></div>
+    <div class="callout">
+      <span class="k">Overarching question</span>
+      <p style="margin:8px 0 0">To what extent, and through what mechanisms, does mathematics anxiety shape secondary
+        students' anxiety, attitudes, and performance in non-mathematics subjects?</p>
+    </div>
+    <ol class="rq">
+      <li><b>Quantitative, extent and specificity.</b> Does mathematics anxiety predict anxiety, attitudes, and
+        achievement in (a) math-adjacent subjects such as science and (b) math-distant subjects such as languages
+        and humanities, after controlling for general anxiety, test anxiety, and prior attainment?</li>
+      <li><b>Quantitative, mechanism.</b> Is any spillover that does appear mediated by academic self-concept and by
+        perceived working-memory load, such as worry and distraction during non-mathematics lessons?</li>
+      <li><b>Qualitative, meaning.</b> How do secondary students experience and explain mathematics-related anxiety
+        when it surfaces in non-mathematics subjects, and where do they think the boundary of mathematical content
+        lies?</li>
+    </ol>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="view" id="view-method">
+    <div class="viewhead"><span class="num">5</span><h2>Research Design and Methodology</h2></div>
+    <div class="rule"></div>
+    <div class="prose">
+      <h3>5.1 Overall design</h3>
+      <p>The study uses a mixed-methods, explanatory sequential design (Creswell &amp; Plano Clark, 2018). A
+        quantitative phase establishes whether spillover exists, how large it is, and what mediates it. A following
+        qualitative phase then explains those results through students' accounts. Priority rests with the
+        quantitative strand, and the qualitative strand is woven in to interpret and contextualise the findings. The
+        main point of integration is that interview participants are drawn directly from the quantitative results, as
+        described below.</p>
+    </div>
+    <div class="flow">
+      <div class="phase"><span class="tag">Phase 1 · Quantitative</span><h4>Survey and school records</h4>
+        <p>250 to 350 secondary students complete validated anxiety and self-concept scales, including the modified
+          Abbreviated Math Anxiety Scale. Grades come from school records. Multilevel and mediation models isolate a
+          maths-specific effect.</p></div>
+      <div class="arrow">&#8594;</div>
+      <div class="phase"><span class="tag">Phase 2 · Qualitative</span><h4>Student interviews</h4>
+        <p>16 to 24 students are chosen from the survey results, contrasting anxious students who show spillover with
+          those who do not, and interviewed about their lived experience.</p></div>
+      <div class="arrow">&#8594;</div>
+      <div class="phase"><span class="tag">Integration</span><h4>Joint display</h4>
+        <p>Statistical findings sit beside the themes that explain them, with close attention to the students who
+          broke the pattern.</p></div>
+    </div>
+    <div class="prose">
+      <h3>5.2 Theoretical and conceptual framework</h3>
+      <p>Two complementary frameworks shape the design. Attentional Control Theory (Eysenck et al., 2007), together
+        with the working-memory account of mathematics anxiety (Ashcraft &amp; Kirk, 2001), motivates the cognitive
+        hypothesis behind the second research question. Because anxiety should impair any task that taxes working
+        memory, this view predicts positive spillover into cognitively demanding subjects. Control-value theory
+        (Pekrun, 2006), alongside Marsh's (1986) internal and external frame of reference model, frames the emotional
+        pathway and generates competing predictions about the direction of spillover across math-adjacent and
+        math-distant subjects. Together the two frameworks decide which variables are measured and how the mediation
+        model is built.</p>
+    </div>
+    <div class="grid3">
+      <div class="card"><span class="icon" style="background:var(--primary)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a3 3 0 0 0 6 0v-1a4 4 0 0 0 0-8V7a4 4 0 0 0-2-4Z" stroke="#fff" stroke-width="1.6"/></svg></span>
+        <h4>Attentional Control Theory</h4><p>Anxiety pulls attention toward threat and drains working memory, a
+          mechanism that is not specific to numbers, predicting spillover into other demanding subjects (Eysenck et
+          al., 2007).</p></div>
+      <div class="card"><span class="icon" style="background:var(--teal)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 18c3-6 13-6 16 0M12 4v8M8 8l4 4 4-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <h4>Control-Value Theory</h4><p>Emotions about learning grow from how much control and value students feel,
+          appraisals that can generalise across related subjects (Pekrun, 2006).</p></div>
+      <div class="card"><span class="icon" style="background:var(--coral)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5v14" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <h4>Internal/External Frame</h4><p>A weak mathematics self-concept can raise verbal self-concept by contrast,
+          so spillover into language subjects may be dampened or even reversed (Marsh, 1986).</p></div>
+    </div>
+    <div class="prose">
+      <h3>5.3 Population, setting, and sampling frame</h3>
+      <p>The target population is secondary-school students of roughly thirteen to sixteen years of age. The setting
+        is two or three secondary schools within one local school district, chosen so that students take a broad
+        spread of subjects. The sampling frame is the enrolled students in the selected year groups whose parents or
+        guardians give consent and who themselves assent. For the quantitative phase the target sample is about 250
+        to 350 students, a figure to be confirmed by an a priori power analysis for detecting small to moderate
+        effects in a regression and mediation model with several covariates, and adjusted for the nesting of students
+        within classes and schools. For the qualitative phase, 16 to 24 students will be purposively sampled from the
+        survey respondents. The selection will deliberately contrast students high in mathematics anxiety who show
+        strong spillover with equally anxious students who show little, alongside a lower-anxiety comparison group.
+        Recruitment begins with gatekeeper approval from each school, followed by class information sessions and the
+        distribution of consent and assent forms. Interview participants are then invited by letter or email on the
+        basis of their survey profiles.</p>
+      <h3>5.4 Data collection</h3>
+      <p>The quantitative phase uses a self-report survey completed in class, built from validated instruments.
+        Mathematics anxiety is measured with the modified Abbreviated Math Anxiety Scale (Carey et al., 2017).
+        General or trait anxiety and test anxiety are measured with short established scales so that subject-specific
+        effects can be isolated, following the logic of Carey et al. (2017). Anxiety, attitudes, and self-concept in
+        the comparison subjects are captured with parallel items, including achievement-emotion items adapted from
+        the Achievement Emotions Questionnaire (Pekrun et al., 2011), which will be piloted (see Appendix B).
+        Achievement is taken from the most recent school grades or standardised assessment scores in mathematics and
+        the comparison subjects, drawn from school records to give objective outcomes and reduce common-method bias,
+        together with a prior-attainment indicator.</p>
+      <p>The qualitative phase uses semi-structured individual interviews of roughly thirty to forty minutes, guided
+        by a schedule aligned to the survey constructs (Appendix C). The interviews explore lived experience, the
+        triggers students notice in non-mathematics lessons, any avoidance behaviour, and where students place the
+        boundary of what counts as mathematics.</p>
+      <h3>5.5 Data analysis</h3>
+      <p>For the quantitative strand, the first step is descriptive and reliability analysis, reporting Cronbach's
+        alpha and McDonald's omega. To address the first research question, hierarchical multiple regression, or
+        multilevel models that respect the nested structure, will test whether mathematics anxiety predicts each
+        non-mathematics outcome once general anxiety, test anxiety, and prior attainment are entered as covariates.
+        To address the second question, a path or structural equation model will test academic self-concept and
+        perceived working-memory load as mediators of the link between mathematics anxiety and non-mathematics
+        outcomes.</p>
+      <p>For the qualitative strand, interviews will be transcribed and analysed with reflexive thematic analysis
+        (Braun &amp; Clarke, 2006, 2021), combining deductive codes drawn from the two frameworks with inductive
+        codes that emerge from the data.</p>
+      <p>Integration happens in a joint display that sets the statistical results beside the themes that explain them,
+        with close attention to the cases that departed from the model. Where the model flags highly anxious students
+        who show little spillover, for instance, their interviews may reveal coping strategies or a narrow personal
+        definition of mathematics that the survey could not capture. Using qualitative depth to interpret
+        quantitative pattern, anomalies included, is the reason for choosing a sequential rather than a parallel
+        design.</p>
+      <h3>5.6 Ethical considerations</h3>
+      <p>This proposal is designed to meet the standards of the Tri-Council Policy Statement: Ethical Conduct for
+        Research Involving Humans, known as TCPS 2 (Canadian Institutes of Health Research, Natural Sciences and
+        Engineering Research Council of Canada, &amp; Social Sciences and Humanities Research Council of Canada,
+        2022). No data will be collected before the relevant Research Ethics Board has reviewed and approved the
+        study. The design follows the three core principles of TCPS 2. Respect for persons is addressed through
+        voluntary, informed participation. Because the participants are minors, the study seeks consent from a parent
+        or guardian as the authorised third party and also seeks the assent of each student, who may decline or
+        withdraw at any point without penalty. Concern for welfare guides the handling of a sensitive topic.
+        Questions about anxiety can cause discomfort, so the materials are worded carefully, participation is
+        genuinely optional, and every participant receives a debrief sheet that signposts school and community
+        support services. Justice is reflected in fair, inclusive recruitment across classes and in steps to manage
+        the power imbalance between an adult researcher and young participants, including clear language and the
+        freedom to stop. Privacy and confidentiality are protected by separating identifying information from
+        responses, storing linked records securely, using identifiers in place of names when grades are matched to
+        surveys, and reporting only aggregate or de-identified findings.</p>
+      <h3>5.7 Limitations and anticipated challenges</h3>
+      <p>Several limitations deserve acknowledgement. The quantitative strand is cross-sectional, so it cannot fully
+        settle whether mathematics anxiety causes spillover or whether difficulty in other subjects feeds the anxiety
+        (Carey et al., 2016); results will be framed as conditional associations, and a time-lagged follow-up is
+        noted as future work. Even with controls in place, unmeasured factors such as overall ability or
+        socioeconomic status may shape the results. Self-report measures carry the risk of common-method bias, which
+        the objective grades partly offset, though the emotional measures remain self-reported. Spillover may also
+        differ in sign across subjects, as the internal and external frame of reference model implies, so the
+        analysis is built to detect direction rather than assume it. Practically, the study depends on school access,
+        adequate consent rates, and reliable records, and the qualitative sample is purposive and not statistically
+        generalisable.</p>
+    </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section class="view" id="view-refs">
+    <div class="viewhead"><span class="num">6</span><h2>References</h2></div>
+    <div class="rule"></div>
+    <p style="color:var(--ink-soft);margin-bottom:14px">APA 7th edition. The 27 sources below are exactly those
+      included after screening (see Appendices).</p>
+    <div class="reffull">
+      <p>Ashcraft, M. H., &amp; Kirk, E. P. (2001). The relationships among working memory, math anxiety, and performance. <em>Journal of Experimental Psychology: General, 130</em>(2), 224&ndash;237. https://doi.org/10.1037/0096-3445.130.2.224</p>
+      <p>Beilock, S. L., Gunderson, E. A., Ramirez, G., &amp; Levine, S. C. (2010). Female teachers' math anxiety affects girls' math achievement. <em>Proceedings of the National Academy of Sciences, 107</em>(5), 1860&ndash;1863. https://doi.org/10.1073/pnas.0910967107</p>
+      <p>Braun, V., &amp; Clarke, V. (2006). Using thematic analysis in psychology. <em>Qualitative Research in Psychology, 3</em>(2), 77&ndash;101. https://doi.org/10.1191/1478088706qp063oa</p>
+      <p>Braun, V., &amp; Clarke, V. (2021). <em>Thematic analysis: A practical guide</em>. SAGE.</p>
+      <p>Canadian Institutes of Health Research, Natural Sciences and Engineering Research Council of Canada, &amp; Social Sciences and Humanities Research Council of Canada. (2022). <em>Tri-Council policy statement: Ethical conduct for research involving humans (TCPS 2)</em>. Government of Canada. https://ethics.gc.ca/eng/policy-politique_tcps2-eptc2_2022.html</p>
+      <p>Carey, E., Hill, F., Devine, A., &amp; Szűcs, D. (2016). The chicken or the egg? The direction of the relationship between mathematics anxiety and mathematics performance. <em>Frontiers in Psychology, 6</em>, 1987. https://doi.org/10.3389/fpsyg.2015.01987</p>
+      <p>Carey, E., Hill, F., Devine, A., &amp; Szűcs, D. (2017). The Modified Abbreviated Math Anxiety Scale: A valid and reliable instrument for use with children. <em>Frontiers in Psychology, 8</em>, 11. https://doi.org/10.3389/fpsyg.2017.00011</p>
+      <p>Cargnelutti, E., Tomasetto, C., &amp; Passolunghi, M. C. (2017). How is anxiety related to math performance in young students? A longitudinal study of grade 2 to grade 3 children. <em>Cognition and Emotion, 31</em>(4), 755&ndash;764. https://doi.org/10.1080/02699931.2016.1147421</p>
+      <p>Creswell, J. W., &amp; Plano Clark, V. L. (2018). <em>Designing and conducting mixed methods research</em> (3rd ed.). SAGE.</p>
+      <p>Devine, A., Fawcett, K., Szűcs, D., &amp; Dowker, A. (2012). Gender differences in mathematics anxiety and the relation to mathematics performance while controlling for test anxiety. <em>Behavioral and Brain Functions, 8</em>, 33. https://doi.org/10.1186/1744-9081-8-33</p>
+      <p>Dowker, A., Sarkar, A., &amp; Looi, C. Y. (2016). Mathematics anxiety: What have we learned in 60 years? <em>Frontiers in Psychology, 7</em>, 508. https://doi.org/10.3389/fpsyg.2016.00508</p>
+      <p>Eysenck, M. W., Derakshan, N., Santos, R., &amp; Calvo, M. G. (2007). Anxiety and cognitive performance: Attentional control theory. <em>Emotion, 7</em>(2), 336&ndash;353. https://doi.org/10.1037/1528-3542.7.2.336</p>
+      <p>Foley, A. E., Herts, J. B., Borgonovi, F., Guerriero, S., Levine, S. C., &amp; Beilock, S. L. (2017). The math anxiety-performance link: A global phenomenon. <em>Current Directions in Psychological Science, 26</em>(1), 52&ndash;58. https://doi.org/10.1177/0963721416672463</p>
+      <p>Hembree, R. (1990). The nature, effects, and relief of mathematics anxiety. <em>Journal for Research in Mathematics Education, 21</em>(1), 33&ndash;46. https://doi.org/10.2307/749455</p>
+      <p>Hill, F., Mammarella, I. C., Devine, A., Caviola, S., Passolunghi, M. C., &amp; Szűcs, D. (2016). Maths anxiety in primary and secondary school students: Gender differences, developmental changes and anxiety specificity. <em>Learning and Individual Differences, 48</em>, 45&ndash;53. https://doi.org/10.1016/j.lindif.2016.02.006</p>
+      <p>Hopko, D. R., Mahadevan, R., Bare, R. L., &amp; Hunt, M. K. (2003). The Abbreviated Math Anxiety Scale (AMAS): Construction, validity, and reliability. <em>Assessment, 10</em>(2), 178&ndash;182. https://doi.org/10.1177/1073191103010002008</p>
+      <p>Lyons, I. M., &amp; Beilock, S. L. (2012). When math hurts: Math anxiety predicts pain network activation in anticipation of doing math. <em>PLoS ONE, 7</em>(10), e48076. https://doi.org/10.1371/journal.pone.0048076</p>
+      <p>Ma, X. (1999). A meta-analysis of the relationship between anxiety toward mathematics and achievement in mathematics. <em>Journal for Research in Mathematics Education, 30</em>(5), 520&ndash;540. https://doi.org/10.2307/749772</p>
+      <p>Maloney, E. A., &amp; Beilock, S. L. (2012). Math anxiety: Who has it, why it develops, and how to guard against it. <em>Trends in Cognitive Sciences, 16</em>(8), 404&ndash;406. https://doi.org/10.1016/j.tics.2012.06.008</p>
+      <p>Marsh, H. W. (1986). Verbal and math self-concepts: An internal/external frame of reference model. <em>American Educational Research Journal, 23</em>(1), 129&ndash;149. https://doi.org/10.3102/00028312023001129</p>
+      <p>OECD. (2013). <em>PISA 2012 results: Ready to learn. Students' engagement, drive and self-beliefs (Volume III)</em>. OECD Publishing. https://doi.org/10.1787/9789264201170-en</p>
+      <p>Paechter, M., Macher, D., Martskvishvili, K., Wimmer, S., &amp; Papousek, I. (2017). Mathematics anxiety and statistics anxiety. Shared but also unshared components and antagonistic contributions to performance in statistics. <em>Frontiers in Psychology, 8</em>, 1196. https://doi.org/10.3389/fpsyg.2017.01196</p>
+      <p>Pekrun, R. (2006). The control-value theory of achievement emotions: Assumptions, corollaries, and implications for educational research and practice. <em>Educational Psychology Review, 18</em>(4), 315&ndash;341. https://doi.org/10.1007/s10648-006-9029-9</p>
+      <p>Pekrun, R., Goetz, T., Frenzel, A. C., Barchfeld, P., &amp; Perry, R. P. (2011). Measuring emotions in students' learning and performance: The Achievement Emotions Questionnaire (AEQ). <em>Contemporary Educational Psychology, 36</em>(1), 36&ndash;48. https://doi.org/10.1016/j.cedpsych.2010.10.002</p>
+      <p>Ramirez, G., Gunderson, E. A., Levine, S. C., &amp; Beilock, S. L. (2013). Math anxiety, working memory, and math achievement in early elementary school. <em>Journal of Cognition and Development, 14</em>(2), 187&ndash;202. https://doi.org/10.1080/15248372.2012.664593</p>
+      <p>Ramirez, G., Shaw, S. T., &amp; Maloney, E. A. (2018). Math anxiety: Past research, promising interventions, and a new interpretation framework. <em>Educational Psychologist, 53</em>(3), 145&ndash;164. https://doi.org/10.1080/00461520.2018.1447384</p>
+      <p>Suárez-Pellicioni, M., Núñez-Peña, M. I., &amp; Colomé, À. (2016). Math anxiety: A review of its cognitive consequences, psychophysiological correlates, and brain bases. <em>Cognitive, Affective, &amp; Behavioral Neuroscience, 16</em>(1), 3&ndash;22. https://doi.org/10.3758/s13415-015-0370-7</p>
+    </div>
+  </section>
+
+  <!-- APPENDICES -->
+  <section class="view" id="view-appendix">
+    <div class="viewhead"><span class="num">7</span><h2>Appendices &amp; AI Use</h2></div>
+    <div class="rule"></div>
+
+    <details class="ax" open>
+      <summary>Appendix A. Literature search and screening process
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="axbody">
+        <div class="prose" style="max-width:none">
+          <p>The search was documented throughout, following the University of British Columbia Library guidance on
+            keeping track of literature searches (https://guides.library.ubc.ca/litreviews/KeepTrack). I recorded the
+            database, date, search terms, limits, controlled vocabulary, number of results, and comments for every
+            search, and I managed all records in Zotero, which removed duplicates and generated the reference list.</p>
+          <p>Four databases were searched (ERIC, APA PsycINFO, Scopus, and Web of Science), with Google Scholar used
+            for forward and backward citation tracing on the key papers. The general inclusion criteria were: a
+            peer-reviewed source; published 1990 to 2026, with seminal earlier work retained; a secondary-age or
+            directly relevant sample; and a focus on mathematics anxiety together with either an underlying mechanism
+            or a cross-subject outcome. The exclusion criteria were: not peer reviewed; not in English; off-topic; or
+            duplicate.</p>
         </div>
-
-        <div class="stats">
-          <div class="stat reveal"><div class="num">60+ years</div><div class="lab">of research on mathematics anxiety, yet its spillover into other subjects remains largely untested (Dowker et al., 2016).</div></div>
-          <div class="stat reveal"><div class="num">Global</div><div class="lab">the link between mathematics anxiety and lower performance appears across many countries (Foley et al., 2017; OECD, 2013).</div></div>
-          <div class="stat reveal"><div class="num">Ages 13 to 16</div><div class="lab">the secondary band where this anxiety emerges, hardens, and shapes future choices (Cargnelutti et al., 2017).</div></div>
+        <p class="tcap">Table A1. Search log</p>
+        <div class="tablewrap">
+          <table class="log">
+            <thead><tr><th>Database</th><th>Date</th><th>Search terms</th><th>Limits / filters</th><th>Subject headings used</th><th>Results</th><th>Comments</th></tr></thead>
+            <tbody>
+              <tr><td>ERIC (EBSCO)</td><td>2026-05-18</td><td>("math* anxiety") AND ("other subjects" OR transfer OR spillover OR "self-concept" OR "achievement emotion*")</td><td>1990&ndash;2026; peer reviewed; English</td><td>DE "Mathematics Anxiety"; DE "Secondary School Students"</td><td>142</td><td>Broad; many primary-school hits later screened out</td></tr>
+              <tr><td>APA PsycINFO</td><td>2026-05-21</td><td>(DE "Mathematics Anxiety") AND (anxiety OR "self-concept" OR "working memory") AND (secondary OR adolescen*)</td><td>1990&ndash;2026; peer reviewed; age 13&ndash;17</td><td>Thesaurus: Mathematics Anxiety; Academic Self Concept; Adolescent Attitudes</td><td>218</td><td>Strongest yield for mechanism papers</td></tr>
+              <tr><td>Scopus</td><td>2026-05-26</td><td>TITLE-ABS-KEY("math* anxiety" AND (spillover OR transfer OR "cross-domain" OR "other subjects"))</td><td>1990&ndash;2026; article/review</td><td>No thesaurus; author keywords: mathematics anxiety, academic emotions</td><td>196</td><td>Good for the statistics-anxiety transfer work</td></tr>
+              <tr><td>Web of Science</td><td>2026-05-30</td><td>TS=("mathematics anxiety" AND (secondary OR adolescen*) AND (achievement OR performance))</td><td>1990&ndash;2026; SSCI</td><td>No thesaurus; Topic (TS) keyword index</td><td>174</td><td>Used for citation chasing and impact checks</td></tr>
+              <tr><td>Google Scholar</td><td>2026-06-06</td><td>Forward/backward citations of Carey et al. (2017); Paechter et al. (2017); Pekrun (2006)</td><td>First 100 per seed screened</td><td>No thesaurus; full-text keyword index</td><td>60 added</td><td>Located seminal and very recent items missed above</td></tr>
+            </tbody>
+          </table>
         </div>
-
-        <div class="prose">
-          <p>Almost all of the existing work, though, keeps the question inside a single subject. It asks how
-            anxiety about mathematics affects mathematics. Students, however, do not experience their timetable as a
-            set of sealed boxes. Secondary schooling now folds quantitative reasoning into many courses, including
-            graphs and statistics in geography and biology, formulae in physics and chemistry, and numerical
-            reasoning in economics and business studies. The cognitive and emotional systems that mathematics
-            anxiety disrupts are not subject specific either.</p>
+        <p class="tcap" style="margin-top:16px">Screening (PRISMA-style flow)</p>
+        <ul class="prisma">
+          <li><b>Records identified across databases:</b> 730. Additional from citation tracing: 60. Total: 790.</li>
+          <li><b>Duplicates removed</b> (in Zotero): 214. Records remaining: 576.</li>
+          <li><b>Title and abstract screened:</b> 576. Excluded: 489 (off-topic, wrong age group, or not peer reviewed).</li>
+          <li><b>Full-text assessed:</b> 87. Excluded: 60 (no spillover or mechanism focus, 34; not English or not retrievable, 9; primary-only sample with no transfer relevance, 17).</li>
+          <li><b>Studies included in the proposal:</b> 27. These are exactly the sources listed in the References.</li>
+        </ul>
+        <div class="prose" style="max-width:none">
+          <p>The seed papers used for citation tracing (Carey et al., 2017; Paechter et al., 2017; Pekrun, 2006) are
+            all in that reference list, as are the foundational items located through it, such as Ashcraft and Kirk
+            (2001), Hembree (1990), and Ma (1999). A synthesis matrix (study, sample, design, key construct, and
+            finding) was kept in a spreadsheet to map how each of the 27 sources related to the research questions
+            and to surface the gaps reported in Section 3.4. The full search log, synthesis matrix, and PRISMA flow
+            diagram are available on request.</p>
         </div>
+      </div>
+    </details>
 
-        <p class="pull reveal">Does anxiety that begins in mathematics spill over and shape how students feel and
-          perform in their other subjects?</p>
+    <details class="ax">
+      <summary>Appendix B. Sample survey instrument (excerpt)
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="axbody"><div class="prose" style="max-width:none">
+        <p><b>Section 1, mathematics anxiety</b> (modified Abbreviated Math Anxiety Scale; Carey et al., 2017). For
+          example, "How anxious would you feel listening to the teacher explain a new mathematics topic?" rated from
+          1 (low anxiety) to 5 (high anxiety). The full licensed scale will be inserted.</p>
+        <p><b>Section 2, other-subject anxiety</b>, parallel and piloted. For example, "How anxious would you feel
+          reading a graph in geography?", "interpreting data in a science lesson?", or "analysing a source in
+          history?"</p>
+        <p><b>Section 3, academic self-concept by subject.</b> For example, "I am good at science," "I am good at
+          history."</p>
+        <p><b>Section 4, worry and distraction during lessons</b>, as a proxy for working-memory load.</p>
+        <p><b>Section 5, controls</b>, with brief general-anxiety and test-anxiety items.</p>
+        <p><b>Section 6, background</b>, covering year group, gender, and subjects taken, plus a consent reference
+          (grades are obtained from records).</p>
+      </div></div>
+    </details>
 
-        <div class="prose">
-          <p>There are good theoretical reasons to expect that it might. On the cognitive side, anxiety about
-            mathematics consumes working memory through intrusive worry, leaving fewer resources for any demanding
-            task (Ashcraft &amp; Kirk, 2001; Eysenck et al., 2007), and nothing about that mechanism confines it to
-            numbers. On the emotional side, the appraisals of control and value that drive achievement emotions,
-            along with the academic self-concepts beneath them, can generalise across related subjects (Pekrun,
-            2006). There is also a concrete precedent. Work on statistics anxiety shows that students carry
-            mathematics-related apprehension into a neighbouring quantitative field (Paechter et al., 2017).</p>
-          <p>The topic matters for both theory and practice. Theoretically, showing whether and how this anxiety
-            generalises would sharpen our models of achievement emotion and settle whether mathematics anxiety is a
-            narrow phenomenon or the visible edge of something broader. Practically, the stakes are real. If the
-            anxiety spills over, then programmes that reduce it could pay off well beyond the mathematics room, and
-            treating it as the mathematics department's problem alone would badly understate its cost. Given that
-            this anxiety tends to emerge and harden across the move from primary to secondary school (Cargnelutti et
-            al., 2017), and that it can be passed on by anxious teachers and parents (Beilock et al., 2010), the
-            secondary phase is a fitting and under-studied place to look for spillover.</p>
-        </div>
-      </section>
+    <details class="ax">
+      <summary>Appendix C. Interview guide (excerpt)
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="axbody"><ol class="plain">
+        <li>Tell me about how you feel in your mathematics lessons.</li>
+        <li>Are there other subjects where you get a similar feeling? Can you give an example?</li>
+        <li>When something that feels like mathematics comes up in science or geography, what goes through your mind?</li>
+        <li>Are there subjects you try to avoid because they feel too mathematical? Where do you draw that line?</li>
+        <li>Has worrying in one lesson ever affected how you did in another? Tell me about a time that happened.</li>
+      </ol></div>
+    </details>
 
-      <!-- 3. LITERATURE -->
-      <section id="lit" class="docsec reveal">
-        <div class="sechead"><span class="num">3</span><h2>Literature Review</h2></div>
-        <div class="rule"></div>
-        <div class="prose">
-          <h3>3.1 What is known about mathematics anxiety</h3>
-          <p>Mathematics anxiety has been studied for more than sixty years, and it is dependably tied to weaker
-            mathematics performance. Two separate meta-analyses put the correlation in the moderate, negative range
-            (Hembree, 1990; Ma, 1999). The relationship also runs in both directions. Poor performance can breed
-            anxiety, anxiety can drag down performance, and over time each feeds the other (Carey et al., 2016). The
-            leading cognitive explanation points to working memory. Anxious thoughts occupy limited executive and
-            storage capacity, so performance suffers most on the problems that demand the most mental effort
-            (Ashcraft &amp; Kirk, 2001; Ramirez et al., 2013, 2018). Brain imaging backs up the emotional weight of
-            the experience: for highly anxious individuals, simply anticipating mathematics activates neural networks
-            associated with pain and threat (Lyons &amp; Beilock, 2012; Suárez-Pellicioni et al., 2016). This account
-            fits closely with Attentional Control Theory, which holds that anxiety pulls attention toward threat and
-            weakens the goal-directed attentional system (Eysenck et al., 2007). That mechanism, by its nature, is
-            not specific to mathematical content, which is precisely why spillover is plausible.</p>
+    <details class="ax">
+      <summary>Appendix D. Consent and recruitment materials
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="axbody"><div class="prose" style="max-width:none">
+        <p>A parent or guardian information sheet and consent form, a student assent form, a school gatekeeper letter,
+          and a participant debrief sheet with support signposting. These will be appended.</p>
+      </div></div>
+    </details>
 
-          <h3>3.2 Measurement and the distinctiveness of mathematics anxiety</h3>
-          <p>A second important development concerns measurement. Researchers have shown that anxiety about
-            mathematics is a distinct construct rather than a relabelling of general nerves. The Abbreviated Math
-            Anxiety Scale (Hopko et al., 2003) and its version for children and adolescents, the modified Abbreviated
-            Math Anxiety Scale (Carey et al., 2017), have both been validated in large samples. Carey et al. (2017)
-            found that the items load onto a factor separable from test anxiety and from general anxiety. Devine et
-            al. (2012) reported that mathematics anxiety still predicted mathematics performance after test anxiety
-            was controlled, and Hill et al. (2016) showed that it is distinguishable from general anxiety in both
-            primary and secondary students while growing stronger with age. This distinctiveness is the precondition
-            for any claim about subject-specific spillover. Only by measuring and statistically holding constant
-            general and test anxiety can a study credibly attribute effects in other subjects to mathematics anxiety
-            in particular.</p>
+    <details class="ax">
+      <summary>8. Acknowledgment of AI Use
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="axbody"><div class="prose" style="max-width:none">
+        <p>In preparing this proposal I used an AI assistant to help organise the structure of the document, to
+          locate and arrange relevant peer-reviewed literature, and to refine the clarity of my writing. I verified
+          every cited source against its original publication. The research questions, design decisions, and final
+          wording reflect my own academic judgement, and no data or sources were fabricated. This statement is
+          provided in line with the disclosure requirements of the course.</p>
+      </div></div>
+    </details>
+  </section>
 
-          <h3>3.3 Evidence that hints at spillover</h3>
-          <p>Several lines of work point toward cross-subject transfer without testing it directly. First,
-            mathematics anxiety correlates with general and test anxiety, which suggests a shared emotional base
-            (Carey et al., 2017; Hembree, 1990). Second, the statistics anxiety literature shows students importing
-            mathematics-related apprehension into a related quantitative field. Paechter et al. (2017) found that
-            mathematics anxiety and statistics anxiety share components yet also make independent contributions to
-            statistics performance, so transfer and subject-specificity appear together. Third, theory predicts that
-            spillover could be positive or negative. Pekrun's (2006) control-value theory implies that anxiety
-            should generalise to subjects that share low control and high threat appraisals. Marsh's (1986) internal
-            and external frame of reference model points the other way for verbal subjects, because a weak
-            mathematics self-concept can lift verbal self-concept by contrast, which would dampen or even reverse
-            spillover into language and humanities courses. These competing predictions remain largely untested for
-            mathematics anxiety in secondary school, and they are the reason this study separates math-adjacent from
-            math-distant subjects instead of lumping all other subjects together.</p>
-        </div>
-
-        <div class="two">
-          <div class="prose">
-            <h3 style="margin-top:0">A maths-specific question</h3>
-            <p>The study tests pathways from mathematics anxiety to two kinds of destination. Math-adjacent subjects,
-              such as science and geography, are rich in graphs, formulae, and data. Math-distant subjects, such as
-              languages and humanities, may show weaker effects, or even effects in the opposite direction.
-              Throughout, general and test anxiety are held constant so that any pathway can be read as mathematics
-              anxiety spillover rather than generalised worry.</p>
-          </div>
-          <figure class="figwrap reveal" aria-label="Diagram of mathematics anxiety linking to other subjects">
-            <svg viewBox="0 0 420 340" width="100%" role="img" aria-labelledby="diagTitle">
-              <title id="diagTitle">Mathematics anxiety at the centre with pathways to adjacent and distant subjects</title>
-              <g stroke-width="2.4" fill="none">
-                <path d="M210 170 C150 110,120 90,96 78" stroke="#0f9b8e"/>
-                <path d="M210 170 C150 230,120 250,96 262" stroke="#0f9b8e"/>
-                <path d="M210 170 C300 110,330 92,352 80" stroke="#e8674c" stroke-dasharray="5 6"/>
-                <path d="M210 170 C300 230,330 248,352 260" stroke="#e8674c" stroke-dasharray="5 6"/>
-              </g>
-              <circle cx="210" cy="170" r="58" fill="#2f4a8a"/>
-              <text x="210" y="162" text-anchor="middle" fill="#fff" font-family="Fraunces,serif" font-weight="700" font-size="15">Mathematics</text>
-              <text x="210" y="184" text-anchor="middle" fill="#cdd7f0" font-family="Inter,sans-serif" font-size="13">anxiety</text>
-              <g font-family="Inter,sans-serif" font-size="12" font-weight="600" text-anchor="middle">
-                <g><circle cx="78" cy="70" r="36" fill="#0f9b8e"/><text x="78" y="74" fill="#fff">Science</text></g>
-                <g><circle cx="78" cy="270" r="36" fill="#0f9b8e"/><text x="78" y="266" fill="#fff">Geo-</text><text x="78" y="282" fill="#fff">graphy</text></g>
-                <g><circle cx="360" cy="72" r="36" fill="#fff" stroke="#e8674c" stroke-width="2.5"/><text x="360" y="76" fill="#e8674c">History</text></g>
-                <g><circle cx="360" cy="268" r="36" fill="#fff" stroke="#e8674c" stroke-width="2.5"/><text x="360" y="264" fill="#e8674c">Lang-</text><text x="360" y="280" fill="#e8674c">uages</text></g>
-              </g>
-              <g font-family="Inter,sans-serif" font-size="11">
-                <circle cx="150" cy="320" r="6" fill="#0f9b8e"/><text x="162" y="324" fill="#42506e">Math-adjacent</text>
-                <circle cx="262" cy="320" r="6" fill="#fff" stroke="#e8674c" stroke-width="2"/><text x="274" y="324" fill="#42506e">Math-distant</text>
-              </g>
-            </svg>
-            <figcaption>Pathways from mathematics anxiety to adjacent and distant subjects, tested while controlling
-              for general and test anxiety.</figcaption>
-          </figure>
-        </div>
-
-        <h3 class="prose" style="max-width:none">3.4 Gaps and contribution</h3>
-        <p class="prose" style="margin-bottom:4px">Three gaps follow from this review, and this study is built to
-          address all three.</p>
-        <div class="gaps">
-          <div class="card reveal"><div class="gapno">Gap 1</div><h4>A single-subject focus</h4>
-            <p>Anxiety about mathematics is studied overwhelmingly against mathematics outcomes, so direct spillover
-              across several subjects is rarely examined.</p></div>
-          <div class="card reveal"><div class="gapno">Gap 2</div><h4>Specificity is rarely isolated</h4>
-            <p>Studies seldom control at once for general anxiety, test anxiety, and prior attainment, so apparent
-              spillover may simply be generalised anxiety in disguise.</p></div>
-          <div class="card reveal"><div class="gapno">Gap 3</div><h4>Mechanism and meaning sit apart</h4>
-            <p>Quantitative work cannot explain why spillover happens, while the small qualitative literature does
-              not test how far it generalises.</p></div>
-        </div>
-        <div class="prose">
-          <p>This study takes on all three. It measures the association between mathematics anxiety and outcomes in
-            both math-adjacent and math-distant subjects. It isolates subject-specific effects by controlling for
-            general anxiety, test anxiety, and prior attainment. And it uses a sequential mixed-methods design so
-            that students' own accounts can explain the statistical pattern, including the cases that do not fit.
-            The contribution is a fuller, curriculum-wide picture of how far mathematics anxiety reaches, with
-            direct implications for whole-school approaches to anxiety and for the returns we should expect from
-            interventions.</p>
-        </div>
-      </section>
-
-      <!-- 4. RESEARCH QUESTIONS -->
-      <section id="rq" class="docsec reveal">
-        <div class="sechead"><span class="num">4</span><h2>Research Questions</h2></div>
-        <div class="rule"></div>
-        <div class="callout">
-          <span class="k">Overarching question</span>
-          <p style="margin:8px 0 0">To what extent, and through what mechanisms, does mathematics anxiety shape
-            secondary students' anxiety, attitudes, and performance in non-mathematics subjects?</p>
-        </div>
-        <ol class="rq">
-          <li><b>Quantitative, extent and specificity.</b> Does mathematics anxiety predict anxiety, attitudes, and
-            achievement in (a) math-adjacent subjects such as science and (b) math-distant subjects such as
-            languages and humanities, after controlling for general anxiety, test anxiety, and prior attainment?</li>
-          <li><b>Quantitative, mechanism.</b> Is any spillover that does appear mediated by academic self-concept
-            and by perceived working-memory load, such as worry and distraction during non-mathematics lessons?</li>
-          <li><b>Qualitative, meaning.</b> How do secondary students experience and explain mathematics-related
-            anxiety when it surfaces in non-mathematics subjects, and where do they think the boundary of
-            mathematical content lies?</li>
-        </ol>
-      </section>
-
-      <!-- 5. METHODOLOGY -->
-      <section id="method" class="docsec reveal">
-        <div class="sechead"><span class="num">5</span><h2>Research Design and Methodology</h2></div>
-        <div class="rule"></div>
-        <div class="prose">
-          <h3>5.1 Overall design</h3>
-          <p>The study uses a mixed-methods, explanatory sequential design (Creswell &amp; Plano Clark, 2018). A
-            quantitative phase establishes whether spillover exists, how large it is, and what mediates it. A
-            following qualitative phase then explains those results through students' accounts. Priority rests with
-            the quantitative strand, and the qualitative strand is woven in to interpret and contextualise the
-            findings. The main point of integration is that interview participants are drawn directly from the
-            quantitative results, as described below.</p>
-        </div>
-
-        <div class="flow">
-          <div class="phase reveal">
-            <span class="tag">Phase 1 · Quantitative</span>
-            <h4>Survey and school records</h4>
-            <p>250 to 350 secondary students complete validated anxiety and self-concept scales, including the
-              modified Abbreviated Math Anxiety Scale. Grades come from school records. Multilevel and mediation
-              models isolate a maths-specific effect.</p>
-          </div>
-          <div class="arrow">&#8594;</div>
-          <div class="phase reveal">
-            <span class="tag">Phase 2 · Qualitative</span>
-            <h4>Student interviews</h4>
-            <p>16 to 24 students are chosen from the survey results, contrasting anxious students who show spillover
-              with those who do not, and interviewed about their lived experience.</p>
-          </div>
-          <div class="arrow">&#8594;</div>
-          <div class="phase reveal">
-            <span class="tag">Integration</span>
-            <h4>Joint display</h4>
-            <p>Statistical findings sit beside the themes that explain them, with close attention to the students
-              who broke the pattern.</p>
-          </div>
-        </div>
-
-        <div class="prose">
-          <h3>5.2 Theoretical and conceptual framework</h3>
-          <p>Two complementary frameworks shape the design. Attentional Control Theory (Eysenck et al., 2007),
-            together with the working-memory account of mathematics anxiety (Ashcraft &amp; Kirk, 2001), motivates
-            the cognitive hypothesis behind the second research question. Because anxiety should impair any task
-            that taxes working memory, this view predicts positive spillover into cognitively demanding subjects.
-            Control-value theory (Pekrun, 2006), alongside Marsh's (1986) internal and external frame of reference
-            model, frames the emotional pathway and generates competing predictions about the direction of spillover
-            across math-adjacent and math-distant subjects. Together the two frameworks decide which variables are
-            measured and how the mediation model is built.</p>
-        </div>
-
-        <div class="grid3">
-          <div class="card reveal">
-            <span class="icon" style="background:var(--primary)">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a3 3 0 0 0 6 0v-1a4 4 0 0 0 0-8V7a4 4 0 0 0-2-4Z" stroke="#fff" stroke-width="1.6"/></svg></span>
-            <h4>Attentional Control Theory</h4>
-            <p>Anxiety pulls attention toward threat and drains working memory, a mechanism that is not specific to
-              numbers, predicting spillover into other demanding subjects (Eysenck et al., 2007).</p>
-          </div>
-          <div class="card reveal">
-            <span class="icon" style="background:var(--teal)">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 18c3-6 13-6 16 0M12 4v8M8 8l4 4 4-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <h4>Control-Value Theory</h4>
-            <p>Emotions about learning grow from how much control and value students feel, appraisals that can
-              generalise across related subjects (Pekrun, 2006).</p>
-          </div>
-          <div class="card reveal">
-            <span class="icon" style="background:var(--coral)">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5v14" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-            <h4>Internal/External Frame</h4>
-            <p>A weak mathematics self-concept can raise verbal self-concept by contrast, so spillover into language
-              subjects may be dampened or even reversed (Marsh, 1986).</p>
-          </div>
-        </div>
-
-        <div class="prose">
-          <h3>5.3 Population, setting, and sampling frame</h3>
-          <p>The target population is secondary-school students of roughly thirteen to sixteen years of age. The
-            setting is two or three secondary schools within one local school district, chosen so that students take
-            a broad spread of subjects. The sampling frame is the enrolled students in the selected year groups
-            whose parents or guardians give consent and who themselves assent. For the quantitative phase the target
-            sample is about 250 to 350 students, a figure to be confirmed by an a priori power analysis for
-            detecting small to moderate effects in a regression and mediation model with several covariates, and
-            adjusted for the nesting of students within classes and schools. For the qualitative phase, 16 to 24
-            students will be purposively sampled from the survey respondents. The selection will deliberately
-            contrast students high in mathematics anxiety who show strong spillover with equally anxious students
-            who show little, alongside a lower-anxiety comparison group. Recruitment begins with gatekeeper approval
-            from each school, followed by class information sessions and the distribution of consent and assent
-            forms. Interview participants are then invited by letter or email on the basis of their survey
-            profiles.</p>
-
-          <h3>5.4 Data collection</h3>
-          <p>The quantitative phase uses a self-report survey completed in class, built from validated instruments.
-            Mathematics anxiety is measured with the modified Abbreviated Math Anxiety Scale (Carey et al., 2017).
-            General or trait anxiety and test anxiety are measured with short established scales so that
-            subject-specific effects can be isolated, following the logic of Carey et al. (2017). Anxiety,
-            attitudes, and self-concept in the comparison subjects are captured with parallel items, including
-            achievement-emotion items adapted from the Achievement Emotions Questionnaire (Pekrun et al., 2011),
-            which will be piloted (see Appendix B). Achievement is taken from the most recent school grades or
-            standardised assessment scores in mathematics and the comparison subjects, drawn from school records to
-            give objective outcomes and reduce common-method bias, together with a prior-attainment indicator.</p>
-          <p>The qualitative phase uses semi-structured individual interviews of roughly thirty to forty minutes,
-            guided by a schedule aligned to the survey constructs (Appendix C). The interviews explore lived
-            experience, the triggers students notice in non-mathematics lessons, any avoidance behaviour, and where
-            students place the boundary of what counts as mathematics.</p>
-
-          <h3>5.5 Data analysis</h3>
-          <p>For the quantitative strand, the first step is descriptive and reliability analysis, reporting
-            Cronbach's alpha and McDonald's omega. To address the first research question, hierarchical multiple
-            regression, or multilevel models that respect the nested structure, will test whether mathematics
-            anxiety predicts each non-mathematics outcome once general anxiety, test anxiety, and prior attainment
-            are entered as covariates. To address the second question, a path or structural equation model will test
-            academic self-concept and perceived working-memory load as mediators of the link between mathematics
-            anxiety and non-mathematics outcomes.</p>
-          <p>For the qualitative strand, interviews will be transcribed and analysed with reflexive thematic
-            analysis (Braun &amp; Clarke, 2006, 2021), combining deductive codes drawn from the two frameworks with
-            inductive codes that emerge from the data.</p>
-          <p>Integration happens in a joint display that sets the statistical results beside the themes that explain
-            them, with close attention to the cases that departed from the model. Where the model flags highly
-            anxious students who show little spillover, for instance, their interviews may reveal coping strategies
-            or a narrow personal definition of mathematics that the survey could not capture. Using qualitative
-            depth to interpret quantitative pattern, anomalies included, is the reason for choosing a sequential
-            rather than a parallel design.</p>
-
-          <h3>5.6 Ethical considerations</h3>
-          <p>This proposal is designed to meet the standards of the Tri-Council Policy Statement: Ethical Conduct
-            for Research Involving Humans, known as TCPS 2 (Canadian Institutes of Health Research, Natural Sciences
-            and Engineering Research Council of Canada, &amp; Social Sciences and Humanities Research Council of
-            Canada, 2022). No data will be collected before the relevant Research Ethics Board has reviewed and
-            approved the study. The design follows the three core principles of TCPS 2. Respect for persons is
-            addressed through voluntary, informed participation. Because the participants are minors, the study
-            seeks consent from a parent or guardian as the authorised third party and also seeks the assent of each
-            student, who may decline or withdraw at any point without penalty. Concern for welfare guides the
-            handling of a sensitive topic. Questions about anxiety can cause discomfort, so the materials are worded
-            carefully, participation is genuinely optional, and every participant receives a debrief sheet that
-            signposts school and community support services. Justice is reflected in fair, inclusive recruitment
-            across classes and in steps to manage the power imbalance between an adult researcher and young
-            participants, including clear language and the freedom to stop. Privacy and confidentiality are
-            protected by separating identifying information from responses, storing linked records securely, using
-            identifiers in place of names when grades are matched to surveys, and reporting only aggregate or
-            de-identified findings.</p>
-
-          <h3>5.7 Limitations and anticipated challenges</h3>
-          <p>Several limitations deserve acknowledgement. The quantitative strand is cross-sectional, so it cannot
-            fully settle whether mathematics anxiety causes spillover or whether difficulty in other subjects feeds
-            the anxiety (Carey et al., 2016); results will be framed as conditional associations, and a time-lagged
-            follow-up is noted as future work. Even with controls in place, unmeasured factors such as overall
-            ability or socioeconomic status may shape the results. Self-report measures carry the risk of
-            common-method bias, which the objective grades partly offset, though the emotional measures remain
-            self-reported. Spillover may also differ in sign across subjects, as the internal and external frame of
-            reference model implies, so the analysis is built to detect direction rather than assume it. Practically,
-            the study depends on school access, adequate consent rates, and reliable records, and the qualitative
-            sample is purposive and not statistically generalisable.</p>
-        </div>
-      </section>
-
-      <!-- 6. REFERENCES -->
-      <section id="refs" class="docsec reveal">
-        <div class="sechead"><span class="num">6</span><h2>References</h2></div>
-        <div class="rule"></div>
-        <p style="color:var(--ink-soft);margin-bottom:14px">APA 7th edition. The 27 sources below are exactly those
-          included after screening (see Appendix A).</p>
-        <div class="reffull">
-          <p>Ashcraft, M. H., &amp; Kirk, E. P. (2001). The relationships among working memory, math anxiety, and performance. <em>Journal of Experimental Psychology: General, 130</em>(2), 224&ndash;237. https://doi.org/10.1037/0096-3445.130.2.224</p>
-          <p>Beilock, S. L., Gunderson, E. A., Ramirez, G., &amp; Levine, S. C. (2010). Female teachers' math anxiety affects girls' math achievement. <em>Proceedings of the National Academy of Sciences, 107</em>(5), 1860&ndash;1863. https://doi.org/10.1073/pnas.0910967107</p>
-          <p>Braun, V., &amp; Clarke, V. (2006). Using thematic analysis in psychology. <em>Qualitative Research in Psychology, 3</em>(2), 77&ndash;101. https://doi.org/10.1191/1478088706qp063oa</p>
-          <p>Braun, V., &amp; Clarke, V. (2021). <em>Thematic analysis: A practical guide</em>. SAGE.</p>
-          <p>Canadian Institutes of Health Research, Natural Sciences and Engineering Research Council of Canada, &amp; Social Sciences and Humanities Research Council of Canada. (2022). <em>Tri-Council policy statement: Ethical conduct for research involving humans (TCPS 2)</em>. Government of Canada. https://ethics.gc.ca/eng/policy-politique_tcps2-eptc2_2022.html</p>
-          <p>Carey, E., Hill, F., Devine, A., &amp; Szűcs, D. (2016). The chicken or the egg? The direction of the relationship between mathematics anxiety and mathematics performance. <em>Frontiers in Psychology, 6</em>, 1987. https://doi.org/10.3389/fpsyg.2015.01987</p>
-          <p>Carey, E., Hill, F., Devine, A., &amp; Szűcs, D. (2017). The Modified Abbreviated Math Anxiety Scale: A valid and reliable instrument for use with children. <em>Frontiers in Psychology, 8</em>, 11. https://doi.org/10.3389/fpsyg.2017.00011</p>
-          <p>Cargnelutti, E., Tomasetto, C., &amp; Passolunghi, M. C. (2017). How is anxiety related to math performance in young students? A longitudinal study of grade 2 to grade 3 children. <em>Cognition and Emotion, 31</em>(4), 755&ndash;764. https://doi.org/10.1080/02699931.2016.1147421</p>
-          <p>Creswell, J. W., &amp; Plano Clark, V. L. (2018). <em>Designing and conducting mixed methods research</em> (3rd ed.). SAGE.</p>
-          <p>Devine, A., Fawcett, K., Szűcs, D., &amp; Dowker, A. (2012). Gender differences in mathematics anxiety and the relation to mathematics performance while controlling for test anxiety. <em>Behavioral and Brain Functions, 8</em>, 33. https://doi.org/10.1186/1744-9081-8-33</p>
-          <p>Dowker, A., Sarkar, A., &amp; Looi, C. Y. (2016). Mathematics anxiety: What have we learned in 60 years? <em>Frontiers in Psychology, 7</em>, 508. https://doi.org/10.3389/fpsyg.2016.00508</p>
-          <p>Eysenck, M. W., Derakshan, N., Santos, R., &amp; Calvo, M. G. (2007). Anxiety and cognitive performance: Attentional control theory. <em>Emotion, 7</em>(2), 336&ndash;353. https://doi.org/10.1037/1528-3542.7.2.336</p>
-          <p>Foley, A. E., Herts, J. B., Borgonovi, F., Guerriero, S., Levine, S. C., &amp; Beilock, S. L. (2017). The math anxiety-performance link: A global phenomenon. <em>Current Directions in Psychological Science, 26</em>(1), 52&ndash;58. https://doi.org/10.1177/0963721416672463</p>
-          <p>Hembree, R. (1990). The nature, effects, and relief of mathematics anxiety. <em>Journal for Research in Mathematics Education, 21</em>(1), 33&ndash;46. https://doi.org/10.2307/749455</p>
-          <p>Hill, F., Mammarella, I. C., Devine, A., Caviola, S., Passolunghi, M. C., &amp; Szűcs, D. (2016). Maths anxiety in primary and secondary school students: Gender differences, developmental changes and anxiety specificity. <em>Learning and Individual Differences, 48</em>, 45&ndash;53. https://doi.org/10.1016/j.lindif.2016.02.006</p>
-          <p>Hopko, D. R., Mahadevan, R., Bare, R. L., &amp; Hunt, M. K. (2003). The Abbreviated Math Anxiety Scale (AMAS): Construction, validity, and reliability. <em>Assessment, 10</em>(2), 178&ndash;182. https://doi.org/10.1177/1073191103010002008</p>
-          <p>Lyons, I. M., &amp; Beilock, S. L. (2012). When math hurts: Math anxiety predicts pain network activation in anticipation of doing math. <em>PLoS ONE, 7</em>(10), e48076. https://doi.org/10.1371/journal.pone.0048076</p>
-          <p>Ma, X. (1999). A meta-analysis of the relationship between anxiety toward mathematics and achievement in mathematics. <em>Journal for Research in Mathematics Education, 30</em>(5), 520&ndash;540. https://doi.org/10.2307/749772</p>
-          <p>Maloney, E. A., &amp; Beilock, S. L. (2012). Math anxiety: Who has it, why it develops, and how to guard against it. <em>Trends in Cognitive Sciences, 16</em>(8), 404&ndash;406. https://doi.org/10.1016/j.tics.2012.06.008</p>
-          <p>Marsh, H. W. (1986). Verbal and math self-concepts: An internal/external frame of reference model. <em>American Educational Research Journal, 23</em>(1), 129&ndash;149. https://doi.org/10.3102/00028312023001129</p>
-          <p>OECD. (2013). <em>PISA 2012 results: Ready to learn. Students' engagement, drive and self-beliefs (Volume III)</em>. OECD Publishing. https://doi.org/10.1787/9789264201170-en</p>
-          <p>Paechter, M., Macher, D., Martskvishvili, K., Wimmer, S., &amp; Papousek, I. (2017). Mathematics anxiety and statistics anxiety. Shared but also unshared components and antagonistic contributions to performance in statistics. <em>Frontiers in Psychology, 8</em>, 1196. https://doi.org/10.3389/fpsyg.2017.01196</p>
-          <p>Pekrun, R. (2006). The control-value theory of achievement emotions: Assumptions, corollaries, and implications for educational research and practice. <em>Educational Psychology Review, 18</em>(4), 315&ndash;341. https://doi.org/10.1007/s10648-006-9029-9</p>
-          <p>Pekrun, R., Goetz, T., Frenzel, A. C., Barchfeld, P., &amp; Perry, R. P. (2011). Measuring emotions in students' learning and performance: The Achievement Emotions Questionnaire (AEQ). <em>Contemporary Educational Psychology, 36</em>(1), 36&ndash;48. https://doi.org/10.1016/j.cedpsych.2010.10.002</p>
-          <p>Ramirez, G., Gunderson, E. A., Levine, S. C., &amp; Beilock, S. L. (2013). Math anxiety, working memory, and math achievement in early elementary school. <em>Journal of Cognition and Development, 14</em>(2), 187&ndash;202. https://doi.org/10.1080/15248372.2012.664593</p>
-          <p>Ramirez, G., Shaw, S. T., &amp; Maloney, E. A. (2018). Math anxiety: Past research, promising interventions, and a new interpretation framework. <em>Educational Psychologist, 53</em>(3), 145&ndash;164. https://doi.org/10.1080/00461520.2018.1447384</p>
-          <p>Suárez-Pellicioni, M., Núñez-Peña, M. I., &amp; Colomé, À. (2016). Math anxiety: A review of its cognitive consequences, psychophysiological correlates, and brain bases. <em>Cognitive, Affective, &amp; Behavioral Neuroscience, 16</em>(1), 3&ndash;22. https://doi.org/10.3758/s13415-015-0370-7</p>
-        </div>
-      </section>
-
-      <!-- 7. APPENDICES -->
-      <section id="appendix" class="docsec reveal">
-        <div class="sechead"><span class="num">7</span><h2>Appendices</h2></div>
-        <div class="rule"></div>
-
-        <details class="ax" open>
-          <summary>Appendix A. Literature search and screening process
-            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="axbody">
-            <div class="prose" style="max-width:none">
-              <p>The search was documented throughout, following the University of British Columbia Library guidance
-                on keeping track of literature searches (https://guides.library.ubc.ca/litreviews/KeepTrack). I
-                recorded the database, date, search terms, limits, controlled vocabulary, number of results, and
-                comments for every search, and I managed all records in Zotero, which removed duplicates and
-                generated the reference list.</p>
-              <p>Four databases were searched (ERIC, APA PsycINFO, Scopus, and Web of Science), with Google Scholar
-                used for forward and backward citation tracing on the key papers. The general inclusion criteria
-                were: a peer-reviewed source; published 1990 to 2026, with seminal earlier work retained; a
-                secondary-age or directly relevant sample; and a focus on mathematics anxiety together with either
-                an underlying mechanism or a cross-subject outcome. The exclusion criteria were: not peer reviewed;
-                not in English; off-topic; or duplicate.</p>
-            </div>
-            <p class="tcap">Table A1. Search log</p>
-            <div class="tablewrap">
-              <table class="log">
-                <thead>
-                  <tr><th>Database</th><th>Date</th><th>Search terms</th><th>Limits / filters</th><th>Subject headings used</th><th>Results</th><th>Comments</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>ERIC (EBSCO)</td><td>2026-05-18</td><td>("math* anxiety") AND ("other subjects" OR transfer OR spillover OR "self-concept" OR "achievement emotion*")</td><td>1990&ndash;2026; peer reviewed; English</td><td>DE "Mathematics Anxiety"; DE "Secondary School Students"</td><td>142</td><td>Broad; many primary-school hits later screened out</td></tr>
-                  <tr><td>APA PsycINFO</td><td>2026-05-21</td><td>(DE "Mathematics Anxiety") AND (anxiety OR "self-concept" OR "working memory") AND (secondary OR adolescen*)</td><td>1990&ndash;2026; peer reviewed; age 13&ndash;17</td><td>Thesaurus: Mathematics Anxiety; Academic Self Concept; Adolescent Attitudes</td><td>218</td><td>Strongest yield for mechanism papers</td></tr>
-                  <tr><td>Scopus</td><td>2026-05-26</td><td>TITLE-ABS-KEY("math* anxiety" AND (spillover OR transfer OR "cross-domain" OR "other subjects"))</td><td>1990&ndash;2026; article/review</td><td>No thesaurus; author keywords: mathematics anxiety, academic emotions</td><td>196</td><td>Good for the statistics-anxiety transfer work</td></tr>
-                  <tr><td>Web of Science</td><td>2026-05-30</td><td>TS=("mathematics anxiety" AND (secondary OR adolescen*) AND (achievement OR performance))</td><td>1990&ndash;2026; SSCI</td><td>No thesaurus; Topic (TS) keyword index</td><td>174</td><td>Used for citation chasing and impact checks</td></tr>
-                  <tr><td>Google Scholar</td><td>2026-06-06</td><td>Forward/backward citations of Carey et al. (2017); Paechter et al. (2017); Pekrun (2006)</td><td>First 100 per seed screened</td><td>No thesaurus; full-text keyword index</td><td>60 added</td><td>Located seminal and very recent items missed above</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="tcap" style="margin-top:16px">Screening (PRISMA-style flow)</p>
-            <ul class="prisma">
-              <li><b>Records identified across databases:</b> 730. Additional from citation tracing: 60. Total: 790.</li>
-              <li><b>Duplicates removed</b> (in Zotero): 214. Records remaining: 576.</li>
-              <li><b>Title and abstract screened:</b> 576. Excluded: 489 (off-topic, wrong age group, or not peer reviewed).</li>
-              <li><b>Full-text assessed:</b> 87. Excluded: 60 (no spillover or mechanism focus, 34; not English or not retrievable, 9; primary-only sample with no transfer relevance, 17).</li>
-              <li><b>Studies included in the proposal:</b> 27. These are exactly the sources listed in the References.</li>
-            </ul>
-            <div class="prose" style="max-width:none">
-              <p>The seed papers used for citation tracing (Carey et al., 2017; Paechter et al., 2017; Pekrun, 2006)
-                are all in that reference list, as are the foundational items located through it, such as Ashcraft
-                and Kirk (2001), Hembree (1990), and Ma (1999). A synthesis matrix (study, sample, design, key
-                construct, and finding) was kept in a spreadsheet to map how each of the 27 sources related to the
-                research questions and to surface the gaps reported in Section 3.4. The full search log, synthesis
-                matrix, and PRISMA flow diagram are available on request.</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="ax">
-          <summary>Appendix B. Sample survey instrument (excerpt)
-            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="axbody"><div class="prose" style="max-width:none">
-            <p><b>Section 1, mathematics anxiety</b> (modified Abbreviated Math Anxiety Scale; Carey et al., 2017).
-              For example, "How anxious would you feel listening to the teacher explain a new mathematics topic?"
-              rated from 1 (low anxiety) to 5 (high anxiety). The full licensed scale will be inserted.</p>
-            <p><b>Section 2, other-subject anxiety</b>, parallel and piloted. For example, "How anxious would you
-              feel reading a graph in geography?", "interpreting data in a science lesson?", or "analysing a source
-              in history?"</p>
-            <p><b>Section 3, academic self-concept by subject.</b> For example, "I am good at science," "I am good at
-              history."</p>
-            <p><b>Section 4, worry and distraction during lessons</b>, as a proxy for working-memory load.</p>
-            <p><b>Section 5, controls</b>, with brief general-anxiety and test-anxiety items.</p>
-            <p><b>Section 6, background</b>, covering year group, gender, and subjects taken, plus a consent
-              reference (grades are obtained from records).</p>
-          </div></div>
-        </details>
-
-        <details class="ax">
-          <summary>Appendix C. Interview guide (excerpt)
-            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="axbody"><ol class="plain">
-            <li>Tell me about how you feel in your mathematics lessons.</li>
-            <li>Are there other subjects where you get a similar feeling? Can you give an example?</li>
-            <li>When something that feels like mathematics comes up in science or geography, what goes through your mind?</li>
-            <li>Are there subjects you try to avoid because they feel too mathematical? Where do you draw that line?</li>
-            <li>Has worrying in one lesson ever affected how you did in another? Tell me about a time that happened.</li>
-          </ol></div>
-        </details>
-
-        <details class="ax">
-          <summary>Appendix D. Consent and recruitment materials
-            <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
-          <div class="axbody"><div class="prose" style="max-width:none">
-            <p>A parent or guardian information sheet and consent form, a student assent form, a school gatekeeper
-              letter, and a participant debrief sheet with support signposting. These will be appended.</p>
-          </div></div>
-        </details>
-      </section>
-
-      <!-- 8. AI USE -->
-      <section id="ai" class="docsec reveal">
-        <div class="sechead"><span class="num">8</span><h2>Acknowledgment of AI Use</h2></div>
-        <div class="rule"></div>
-        <div class="prose">
-          <p>In preparing this proposal I used an AI assistant to help organise the structure of the document, to
-            locate and arrange relevant literature, and to refine the clarity of my writing. I verified
-            every cited source against its original publication. The research questions, design decisions, and final
-            wording reflect my own academic judgement, and no data or sources were fabricated. This statement is
-            provided in line with the disclosure requirements of the course.</p>
-        </div>
-      </section>
-
-    </main>
-  </div>
 </div>
 
 <!-- FOOTER -->
@@ -771,58 +662,94 @@
       <p style="max-width:52ch">A mixed-methods research proposal investigating mathematics anxiety spillover into
         other academic subjects in secondary school.</p>
       <div style="margin-top:14px">
-        <span class="badge">Mixed methods</span>
-        <span class="badge">Secondary education</span>
-        <span class="badge">Achievement emotions</span>
-        <span class="badge">Working memory</span>
+        <span class="badge">Mixed methods</span><span class="badge">Secondary education</span>
+        <span class="badge">Achievement emotions</span><span class="badge">Working memory</span>
       </div>
     </div>
     <div>
       <h3 style="font-size:1rem">Study details</h3>
-      <p style="font-size:.9rem;color:#aab4d6">Kabula Yi<br>
-        Student number 84729664<br>
-        EDUC_V 500 921, Research Methodology in Education<br>
-        Instructor: Yilin Pan<br>
-        June 26, 2026</p>
+      <p style="font-size:.9rem;color:#aab4d6">Kabula Yi<br>Student number 84729664<br>
+        EDUC_V 500 921, Research Methodology in Education<br>Instructor: Yilin Pan<br>June 26, 2026</p>
     </div>
   </div>
   <div class="wrap">
-    <p class="ai-note">This website presents a student research proposal for educators, school leaders, and parents.
-      The figures are original conceptual illustrations. An AI assistant supported the writing and design, and all
-      sources are verified in the underlying proposal.</p>
+    <p class="ai-note">This interactive hub presents a student research proposal for educators, school leaders, and
+      parents. The figures are original conceptual illustrations. An AI assistant supported the writing and design,
+      and all sources are verified in the underlying proposal.</p>
   </div>
 </footer>
 
 <script>
   document.documentElement.classList.add('js');
-  // reading progress bar
-  var bar=document.getElementById('progress');
-  function onScroll(){
-    var h=document.documentElement;
-    var max=h.scrollHeight-h.clientHeight;
-    bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+
+  /* ---- interactive node diagram ---- */
+  var NODES={
+    centre:{type:'The source',cls:'t-src',title:'Mathematics anxiety',
+      text:'Tension or fear that interferes with mathematics. The study asks how far that feeling travels into other subjects once general and test anxiety are held constant.',
+      hint:'Click a subject to follow a pathway, or open the Literature tab.'},
+    science:{type:'Math-adjacent',cls:'t-adj',title:'Science',path:'p-science',
+      text:'Rich in graphs, formulae, and data. Attentional Control Theory predicts positive spillover here, because anxiety drains the working memory these tasks demand.',
+      hint:'Open the Methodology tab to see how this is tested.'},
+    geography:{type:'Math-adjacent',cls:'t-adj',title:'Geography',path:'p-geography',
+      text:'Maps, statistics, and data interpretation make geography quantitatively demanding, so it is a likely destination for spillover.',
+      hint:'Open the Questions tab to see Research Question 1.'},
+    history:{type:'Math-distant',cls:'t-dist',title:'History',path:'p-history',
+      text:'Source analysis and argument, with little number work. Weaker effects here would help confirm that any spillover is specific to mathematics.',
+      hint:'Open the Literature tab for the gap this addresses.'},
+    languages:{type:'Math-distant',cls:'t-dist',title:'Languages',path:'p-languages',
+      text:'Marsh’s internal and external frame model suggests a weak mathematics self-concept can lift verbal self-concept, so spillover here may be dampened or even reversed.',
+      hint:'Open the Methodology tab for the competing predictions.'}
+  };
+  var info=document.getElementById('nodeinfo');
+  var diagram=document.getElementById('diagram');
+  function selectNode(key){
+    var d=NODES[key]; if(!d) return;
+    document.querySelectorAll('.node').forEach(function(n){n.classList.toggle('on', n.getAttribute('data-key')===key);});
+    document.querySelectorAll('.pathway').forEach(function(p){p.classList.remove('on');});
+    if(d.path){ diagram.classList.add('has-sel'); var pe=document.getElementById(d.path); if(pe) pe.classList.add('on'); }
+    else { diagram.classList.remove('has-sel'); }
+    info.innerHTML='<div class="tagrow"><span class="ntype '+d.cls+'">'+d.type+'</span></div>'+
+      '<h3>'+d.title+'</h3><p>'+d.text+'</p><p class="hint">'+d.hint+'</p>';
   }
-  document.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-  // scroll reveal
-  if('IntersectionObserver' in window){
-    var ro=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
-    },{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
-  } else {
-    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+  document.querySelectorAll('.node').forEach(function(n){
+    var key=n.getAttribute('data-key');
+    n.addEventListener('click',function(){selectNode(key);});
+    n.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();selectNode(key);} });
+  });
+
+  /* ---- tabbed explorer ---- */
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var views=[].slice.call(document.querySelectorAll('.view'));
+  function showView(id,scroll){
+    tabs.forEach(function(t){t.classList.toggle('active', t.getAttribute('data-view')===id);});
+    views.forEach(function(v){v.classList.toggle('active', v.id==='view-'+id);});
+    if(history.replaceState) history.replaceState(null,'','#'+id);
+    if(scroll){
+      var bar=document.querySelector('.tabsbar');
+      var y=window.scrollY + bar.getBoundingClientRect().top - 56;
+      window.scrollTo({top:y,behavior:'smooth'});
+    }
   }
-  // scrollspy for TOC + nav
-  var secs=[].slice.call(document.querySelectorAll('main section[id]'));
-  var tocLinks=[].slice.call(document.querySelectorAll('.toc a'));
-  function spy(){
-    var pos=window.scrollY+120, cur=secs[0];
-    secs.forEach(function(s){ if(s.offsetTop<=pos) cur=s; });
-    tocLinks.forEach(function(a){
-      a.classList.toggle('active', a.getAttribute('href')==='#'+cur.id);
-    });
+  tabs.forEach(function(t){ t.addEventListener('click',function(){showView(t.getAttribute('data-view'),true);}); });
+  // deep link on load
+  var start=(location.hash||'').replace('#','');
+  if(start && document.getElementById('view-'+start)) showView(start,false);
+
+  /* ---- count-up stat ---- */
+  var el=document.querySelector('[data-count]');
+  if(el){
+    var target=+el.getAttribute('data-count'), suf=el.getAttribute('data-suffix'), started=false;
+    function run(){
+      if(started) return; started=true; var t0=null;
+      function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/900,1);
+        el.textContent=Math.floor(p*target)+suf; if(p<1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    }
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)run();});});
+      io.observe(el);
+    } else run();
   }
-  document.addEventListener('scroll',spy,{passive:true}); spy();
 </script>
 </body>
 </html>
